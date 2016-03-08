@@ -12,7 +12,7 @@ let NSMNetworkUpdateNotification = "network-update-notification"
 
 class NetworkService : NSObject {
     
-    func update() {
+    func update(completion: (()->())? = nil) {
         
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
@@ -37,6 +37,11 @@ class NetworkService : NSObject {
                             
                             try text!.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
                             NSNotificationCenter.defaultCenter().postNotificationName(NSMNetworkUpdateNotification, object: nil)
+                            
+                            if let successBlock = completion {
+                                successBlock();
+                            }
+                            
                         }
                         catch {
                         }

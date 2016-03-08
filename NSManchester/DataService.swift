@@ -19,18 +19,9 @@ struct MenuOption {
 class DataService: NSObject {
     
     func mainMenuOptions() -> Array<MenuOption> {
-        var nextEvent = "First Monday of each month"
-        if let events = events()
-        {
-            if events.count > 0
-            {
-            nextEvent = dateAsString(events[0].date)
-            }
-        }
-        
         return [
             MenuOption(title: "NSManchester", subtitle: "iOS developer group", segue: nil, cellIdentifier: "nsmanchester", urlScheme: nil),
-            MenuOption(title: "when?", subtitle: nextEvent, segue: "when", cellIdentifier:"when", urlScheme: nil),
+            MenuOption(title: "when?", subtitle: nextEventString(), segue: "when", cellIdentifier:"when", urlScheme: nil),
             MenuOption(title: "where?", subtitle: "Madlab, 36-40 Edge Street, Manchester", segue: "where", cellIdentifier:"where", urlScheme: nil),
             MenuOption(title: "we're social!", subtitle: nil, segue: "social", cellIdentifier: "social", urlScheme: nil),
             MenuOption(title: "who?", subtitle: nil, segue: "who", cellIdentifier: "who", urlScheme: nil)
@@ -74,6 +65,10 @@ class DataService: NSObject {
         return eventMenuOptions
     }
     
+    func todayViewOptions() -> MenuOption? {
+        return MenuOption(title: nextEventString(), subtitle: "", segue: nil, cellIdentifier:"", urlScheme: nil);
+    }
+    
     private func events() -> Array<Event>? {
         
         let file = "nsmanchester.json"
@@ -89,6 +84,18 @@ class DataService: NSObject {
         let fileName = NSBundle.mainBundle().pathForResource("NSManchester", ofType: "json");
         let data: NSData = try! NSData(contentsOfFile: fileName!, options: NSDataReadingOptions(rawValue: 0))
         return ParsingService().parse(data)
+    }
+    
+    private func nextEventString() -> String {
+        var nextEvent = "First Monday of each month"
+        if let events = events()
+        {
+            if events.count > 0
+            {
+                nextEvent = dateAsString(events[0].date)
+            }
+        }
+        return nextEvent
     }
     
     private func dateAsString(date: NSDate) -> String {

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="NSManchesterNextMeetup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clO-xk-QuT">
+                                <rect key="frame" x="16" y="3" width="160.5" height="33"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="NS">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="Avenir-BlackOblique"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Manchester">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Next Meetup" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kZ-pV-aj6">
+                                <rect key="frame" x="216.5" y="12" width="87.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7th February 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="t7t-hr-7g2">
+                                <rect key="frame" x="78" y="41" width="164.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQS-in-ZEB" userLabel="SpacerBar">
+                                <rect key="frame" x="78" y="39" width="164.5" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Io1-QQ-pR0"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIT-f3-ol9" userLabel="GoToAppButton">
+                                <rect key="frame" x="16" y="0.0" width="288" height="80"/>
+                                <connections>
+                                    <action selector="goToEvent:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="f9Q-Im-NNu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="8kZ-pV-aj6" secondAttribute="trailing" id="13m-EG-UHQ"/>
+                            <constraint firstItem="8kZ-pV-aj6" firstAttribute="baseline" secondItem="clO-xk-QuT" secondAttribute="baseline" id="1dT-O6-ZCZ"/>
+                            <constraint firstItem="clO-xk-QuT" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="2JN-YO-Ult"/>
+                            <constraint firstItem="t7t-hr-7g2" firstAttribute="top" secondItem="CQS-in-ZEB" secondAttribute="bottom" constant="0.5" id="4EF-0r-Ddb"/>
+                            <constraint firstItem="clO-xk-QuT" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="3" id="6kf-Fu-zNo"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="t7t-hr-7g2" secondAttribute="bottom" constant="5.5" id="Law-hU-syD"/>
+                            <constraint firstItem="8kZ-pV-aj6" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="12" id="LdY-OH-pvW"/>
+                            <constraint firstItem="8kZ-pV-aj6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="clO-xk-QuT" secondAttribute="trailing" id="VJa-Dm-8ga"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="VIT-f3-ol9" secondAttribute="bottom" id="Y1b-Ru-QOs"/>
+                            <constraint firstItem="t7t-hr-7g2" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="YUI-fb-97v"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VIT-f3-ol9" secondAttribute="trailing" id="amX-Wo-a20"/>
+                            <constraint firstItem="CQS-in-ZEB" firstAttribute="width" secondItem="t7t-hr-7g2" secondAttribute="width" id="bOL-qP-uYM"/>
+                            <constraint firstItem="CQS-in-ZEB" firstAttribute="centerX" secondItem="t7t-hr-7g2" secondAttribute="centerX" id="edU-cC-UTv"/>
+                            <constraint firstItem="t7t-hr-7g2" firstAttribute="top" secondItem="clO-xk-QuT" secondAttribute="bottom" constant="5.5" id="nLU-KI-swy"/>
+                            <constraint firstItem="CQS-in-ZEB" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="s8S-Fd-rt5"/>
+                            <constraint firstItem="VIT-f3-ol9" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="w9S-fT-SXv"/>
+                            <constraint firstItem="VIT-f3-ol9" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="zCQ-a5-vBq"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="80"/>
+                    <connections>
+                        <outlet property="dateField" destination="t7t-hr-7g2" id="7h5-ew-OH8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="216"/>
+        </scene>
+    </scenes>
+</document>

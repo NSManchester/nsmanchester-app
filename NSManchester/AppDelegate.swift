@@ -22,5 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkService().update()
     }
 
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        
+        return true;
+    }
 }
 

@@ -30,8 +30,40 @@
 		1EF1373D1C5D79A3004DD7AE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1373C1C5D79A3004DD7AE /* EventViewController.swift */; };
 		32631A1EB6F85C5203CC0DF0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F49EDA28E70A2AF28C7164C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B32761C8E1A5B002681A0 /* UIColor.swift */; };
+		F04D34D61C8E106600DF3DD7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */; };
+		F04D34D91C8E106600DF3DD7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D34D81C8E106600DF3DD7 /* TodayViewController.swift */; };
+		F04D34DC1C8E106600DF3DD7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04D34DA1C8E106600DF3DD7 /* MainInterface.storyboard */; };
+		F04D34E01C8E106600DF3DD7 /* NSManchesterNextMeetup.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F04D34E51C8E141E00DF3DD7 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E8FB11C5AC64C00FA2DBC /* DataService.swift */; };
+		F04D34E61C8E142B00DF3DD7 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* ParsingService.swift */; };
+		F04D34E71C8E14B400DF3DD7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D21C49889800E6A951 /* NetworkService.swift */; };
+		F04D34E81C8E1A2400DF3DD7 /* NSManchester.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5D61C499C8700E6A951 /* NSManchester.json */; };
 		FBE73DDD1C8E208800DECC4D /* CFBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE73DDC1C8E208800DECC4D /* CFBundle.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F04D34DE1C8E106600DF3DD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E51D5921C49880C00E6A951 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F04D34D31C8E106600DF3DD7;
+			remoteInfo = NSManchesterNextMeetup;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F04D34E41C8E106600DF3DD7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F04D34E01C8E106600DF3DD7 /* NSManchesterNextMeetup.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E1C69441C5C045400A6337C /* WhenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhenViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +93,11 @@
 		539B32761C8E1A5B002681A0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5636F9157FF4823C9F2A5FBE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F49EDA28E70A2AF28C7164C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NSManchesterNextMeetup.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F04D34D81C8E106600DF3DD7 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F04D34DB1C8E106600DF3DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F04D34DD1C8E106600DF3DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBE73DDC1C8E208800DECC4D /* CFBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFBundle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +110,14 @@
 				1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */,
 				1E1C69501C5C1CC400A6337C /* MapKit.framework in Frameworks */,
 				32631A1EB6F85C5203CC0DF0 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F04D34D11C8E106600DF3DD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F04D34D61C8E106600DF3DD7 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				1E51D59C1C49880C00E6A951 /* NSManchester */,
+				F04D34D71C8E106600DF3DD7 /* NSManchesterNextMeetup */,
 				1E51D59B1C49880C00E6A951 /* Products */,
 				49DF63E8772CDF8D5826B32D /* Pods */,
 				ECD8D67FDE1EEE0A305AA8D3 /* Frameworks */,
@@ -201,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				1E51D59A1C49880C00E6A951 /* NSManchester.app */,
+				F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,8 +308,19 @@
 				1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */,
 				1E1C694F1C5C1CC400A6337C /* MapKit.framework */,
 				7F49EDA28E70A2AF28C7164C /* Pods.framework */,
+				F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F04D34D71C8E106600DF3DD7 /* NSManchesterNextMeetup */ = {
+			isa = PBXGroup;
+			children = (
+				F04D34D81C8E106600DF3DD7 /* TodayViewController.swift */,
+				F04D34DA1C8E106600DF3DD7 /* MainInterface.storyboard */,
+				F04D34DD1C8E106600DF3DD7 /* Info.plist */,
+			);
+			path = NSManchesterNextMeetup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,15 +336,34 @@
 				1E51D5981C49880C00E6A951 /* Resources */,
 				2F34EF8565D761FABA596CB1 /* Embed Pods Frameworks */,
 				854C3616962BAF241C6FC3E5 /* Copy Pods Resources */,
+				F04D34E41C8E106600DF3DD7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F04D34DF1C8E106600DF3DD7 /* PBXTargetDependency */,
 			);
 			name = NSManchester;
 			productName = NSManchester;
 			productReference = 1E51D59A1C49880C00E6A951 /* NSManchester.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F04D34D31C8E106600DF3DD7 /* NSManchesterNextMeetup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F04D34E31C8E106600DF3DD7 /* Build configuration list for PBXNativeTarget "NSManchesterNextMeetup" */;
+			buildPhases = (
+				F04D34D01C8E106600DF3DD7 /* Sources */,
+				F04D34D11C8E106600DF3DD7 /* Frameworks */,
+				F04D34D21C8E106600DF3DD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSManchesterNextMeetup;
+			productName = NSManchesterNextMeetup;
+			productReference = F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -294,7 +371,7 @@
 		1E51D5921C49880C00E6A951 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Ross Butler";
 				TargetAttributes = {
@@ -306,6 +383,10 @@
 								enabled = 1;
 							};
 						};
+					};
+					F04D34D31C8E106600DF3DD7 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = R6FMX6D3C2;
 					};
 				};
 			};
@@ -323,6 +404,7 @@
 			projectRoot = "";
 			targets = (
 				1E51D5991C49880C00E6A951 /* NSManchester */,
+				F04D34D31C8E106600DF3DD7 /* NSManchesterNextMeetup */,
 			);
 		};
 /* End PBXProject section */
@@ -336,6 +418,15 @@
 				1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */,
 				1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */,
 				1E51D5A31C49880C00E6A951 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F04D34D21C8E106600DF3DD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F04D34E81C8E1A2400DF3DD7 /* NSManchester.json in Resources */,
+				F04D34DC1C8E106600DF3DD7 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +504,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F04D34D01C8E106600DF3DD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F04D34D91C8E106600DF3DD7 /* TodayViewController.swift in Sources */,
+				F04D34E61C8E142B00DF3DD7 /* ParsingService.swift in Sources */,
+				F04D34E71C8E14B400DF3DD7 /* NetworkService.swift in Sources */,
+				F04D34E51C8E141E00DF3DD7 /* DataService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F04D34DF1C8E106600DF3DD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F04D34D31C8E106600DF3DD7 /* NSManchesterNextMeetup */;
+			targetProxy = F04D34DE1C8E106600DF3DD7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1E51D5A11C49880C00E6A951 /* Main.storyboard */ = {
@@ -430,6 +540,14 @@
 				1E51D5AA1C49880D00E6A951 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F04D34DA1C8E106600DF3DD7 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F04D34DB1C8E106600DF3DD7 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -552,6 +670,34 @@
 			};
 			name = Release;
 		};
+		F04D34E11C8E106600DF3DD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester.NSManchesterNextMeetup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F04D34E21C8E106600DF3DD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester.NSManchesterNextMeetup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -569,6 +715,15 @@
 			buildConfigurations = (
 				1E51D5C61C49880D00E6A951 /* Debug */,
 				1E51D5C71C49880D00E6A951 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F04D34E31C8E106600DF3DD7 /* Build configuration list for PBXNativeTarget "NSManchesterNextMeetup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F04D34E11C8E106600DF3DD7 /* Debug */,
+				F04D34E21C8E106600DF3DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
