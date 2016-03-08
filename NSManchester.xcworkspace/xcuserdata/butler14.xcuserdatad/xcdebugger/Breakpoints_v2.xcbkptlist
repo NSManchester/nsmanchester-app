@@ -303,7 +303,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "init(coder:)"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,12 +330,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NSManchester/WhenViewController.swift"
-            timestampString = "475890895.28569"
+            timestampString = "479173652.229787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "tableView(_:heightForRowAtIndexPath:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -346,13 +346,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NSManchester/WhenViewController.swift"
-            timestampString = "475890895.28569"
+            timestampString = "479173652.229787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "WhenViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -442,13 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NSManchester/WhenViewController.swift"
-            timestampString = "475891463.258076"
+            timestampString = "479173652.229787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            startingLineNumber = "102"
+            endingLineNumber = "102">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -593,38 +591,6 @@
             endingLineNumber = "35"
             landmarkName = "testExample()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NSManchesterUITests.NSManchesterUITests.testExample (NSManchesterUITests.NSManchesterUITests)() -&gt; ()"
-                  moduleName = "NSManchesterUITests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/butler14/Documents/NSManchester/app/nsmanchester/NSManchesterUITests/NSManchesterUITests.swift"
-                  timestampString = "479090101.597948"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NSManchesterUITests.NSManchesterUITests.(testExample (NSManchesterUITests.NSManchesterUITests) -&gt; () -&gt; ()).(implicit closure #1)"
-                  moduleName = "NSManchesterUITests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/butler14/Documents/NSManchester/app/nsmanchester/NSManchesterUITests/NSManchesterUITests.swift"
-                  timestampString = "479090101.598239"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "21">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

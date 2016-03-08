@@ -39,19 +39,18 @@ class WhenViewController : UIViewController {
     }
     
     private func colorFor(indexPath: NSIndexPath) -> UIColor {
-        if (indexPath.row + 1) % 1 == 0
+        var result : UIColor = UIColor.whiteColor()
+        switch(indexPath.row % 3)
         {
-            return UIColor.burntSiennaColor()
+        case 0:
+            result = UIColor.burntSiennaColor()
+        case 1:
+            result = UIColor.hopbushColor()
+        case 2:
+            result = UIColor.waxFlowerColor()
+        default: break // Cannot occur mathematically
         }
-        if (indexPath.row + 1) % 2 == 0
-        {
-            return UIColor.hopbushColor()
-        }
-        if (indexPath.row + 1) % 3 == 0
-        {
-            return UIColor.waxFlowerColor()
-        }
-        fatalError("wrong indexPath") // should never happen
+        return result
     }
 }
 

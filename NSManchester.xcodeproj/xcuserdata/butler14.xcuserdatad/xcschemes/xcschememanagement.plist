@@ -3,7 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
-	<dict/>
+	<dict>
+		<key>NSManchesterNextMeetup.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1E51D5991C49880C00E6A951</key>
@@ -17,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>1E51D5BB1C49880D00E6A951</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F04D34D31C8E106600DF3DD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
