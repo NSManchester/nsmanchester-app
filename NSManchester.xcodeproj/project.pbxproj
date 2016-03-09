@@ -28,7 +28,6 @@
 		1EF137311C5D1F78004DD7AE /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF137301C5D1F78004DD7AE /* Contacts.framework */; };
 		1EF137331C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF137321C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift */; };
 		1EF1373D1C5D79A3004DD7AE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1373C1C5D79A3004DD7AE /* EventViewController.swift */; };
-		32631A1EB6F85C5203CC0DF0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F49EDA28E70A2AF28C7164C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B32761C8E1A5B002681A0 /* UIColor.swift */; };
 		F04D34D61C8E106600DF3DD7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */; };
 		F04D34D91C8E106600DF3DD7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D34D81C8E106600DF3DD7 /* TodayViewController.swift */; };
@@ -89,9 +88,7 @@
 		1EF137301C5D1F78004DD7AE /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		1EF137321C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WhereViewController +MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		1EF1373C1C5D79A3004DD7AE /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		2F0A9FFC6A6A2A41C9E8A465 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		539B32761C8E1A5B002681A0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		5636F9157FF4823C9F2A5FBE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F49EDA28E70A2AF28C7164C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NSManchesterNextMeetup.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -109,7 +106,6 @@
 				1EF137311C5D1F78004DD7AE /* Contacts.framework in Frameworks */,
 				1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */,
 				1E1C69501C5C1CC400A6337C /* MapKit.framework in Frameworks */,
-				32631A1EB6F85C5203CC0DF0 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +291,6 @@
 		49DF63E8772CDF8D5826B32D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2F0A9FFC6A6A2A41C9E8A465 /* Pods.debug.xcconfig */,
-				5636F9157FF4823C9F2A5FBE /* Pods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -445,7 +439,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		854C3616962BAF241C6FC3E5 /* Copy Pods Resources */ = {
@@ -460,7 +455,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		BAF2C8B05577A4A14AB0A52D /* Check Pods Manifest.lock */ = {
@@ -475,7 +471,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -638,7 +635,6 @@
 		};
 		1E51D5C61C49880D00E6A951 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F0A9FFC6A6A2A41C9E8A465 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -647,6 +643,7 @@
 				INFOPLIST_FILE = NSManchester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -655,7 +652,6 @@
 		};
 		1E51D5C71C49880D00E6A951 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5636F9157FF4823C9F2A5FBE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -664,6 +660,7 @@
 				INFOPLIST_FILE = NSManchester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

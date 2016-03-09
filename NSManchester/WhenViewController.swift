@@ -66,6 +66,7 @@ extension WhenViewController: UITableViewDataSource {
         
         cell.contentView.backgroundColor = colorFor(indexPath)
         cell.textLabel?.text = menuOptions[indexPath.row].title
+        cell.textLabel?.backgroundColor = UIColor.clearColor()
         
         if let subtitle = menuOptions[indexPath.row].subtitle
         {
