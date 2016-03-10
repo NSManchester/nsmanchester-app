@@ -1,7 +1,7 @@
 # NSManchester - The App.
 
 [![Build Status](https://travis-ci.org/NSManchester/nsmanchester-app.svg?branch=master)](https://travis-ci.org/NSManchester/nsmanchester-app)
-[![Twitter](https://img.shields.io/badge/Twitter-%40NSManchester-blue.svg)](http://twitter.com/NSManchester)
+[![Twitter](https://img.shields.io/badge/twitter-%40NSManchester-blue.svg)](http://twitter.com/NSManchester)
 
 You've heard the talks, you've drunk the beer - now, own the app!
 
