@@ -19,9 +19,49 @@
         "4": {
             "forename": "Kevin",
             "surname": ""
+        },
+        "5": {
+            "forename": "Orta",
+            "surname": "Therox"
+        },
+        "6": {
+            "forename": "Matthew",
+            "surname": "Spear"
         }
     },
     "events": [
+               {
+               "date": "07/11/16",
+               "talks": [{
+                         "title": "TBC",
+                         "speaker": "2"
+                         }]
+               },
+               {
+               "date": "26/09/16",
+               "talks": [{
+                         "title": "Danger CI",
+                         "speaker": "5"
+                         }]
+               },
+               {
+               "date": "04/07/16",
+               "talks": [{
+                         "title": "App Architectures with RxSwift",
+                         "speaker": "3"
+                         },
+                         {
+                         "title": "WWDC Summary",
+                         "speaker": "6"
+                         }]
+               },
+               {
+               "date": "06/06/16",
+               "talks": [{
+                         "title": "Dynamic Type",
+                         "speaker": "2"
+                         }]
+               },
                {
                "date": "04/04/16",
                "talks": [{
