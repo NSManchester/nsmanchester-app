@@ -16,7 +16,7 @@ class NetworkService : NSObject {
         
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://nsmanchester.github.io/config/nsmanchester.json")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://raw.githubusercontent.com/NSManchester/nsmanchester-app/master/NSManchester/NSManchester.json")!)
         request.HTTPMethod = "GET"
         let task = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             
