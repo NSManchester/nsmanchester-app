@@ -16,7 +16,9 @@ struct MenuOption {
     let urlScheme : String?
 }
 
-class DataService: NSObject {
+class DataService {
+    
+    private let parsingService : ParsingService = NSJONSerializationParsingService()
     
     func mainMenuOptions() -> Array<MenuOption> {
         return [
@@ -78,12 +80,12 @@ class DataService: NSObject {
             
             if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
             {
-                return ParsingService().parse(data)
+                return parsingService.parse(data)
             }
         }
         let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
         let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
-        return ParsingService().parse(data)
+        return parsingService.parse(data)
     }
     
     fileprivate func nextEventString() -> String {

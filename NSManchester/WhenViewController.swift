@@ -11,11 +11,13 @@ import UIKit
 class WhenViewController : UIViewController {
     
     @IBOutlet weak fileprivate var tableView: UITableView?
+    
     lazy var menuOptions: [MenuOption] = {
         return DataService().whenMenuOptions()
     }()
     
-    // MARK: View lifecycle
+    // MARK: View Lifecycle
+    
     override func viewWillAppear(_ animated: Bool) {
         if let selectedIndex = tableView?.indexPathForSelectedRow
         {
@@ -55,6 +57,7 @@ class WhenViewController : UIViewController {
 }
 
 extension WhenViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOptions.count
     }
@@ -82,7 +85,9 @@ extension WhenViewController: UITableViewDataSource {
 }
 
 extension WhenViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
 }

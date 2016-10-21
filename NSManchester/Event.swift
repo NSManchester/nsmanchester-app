@@ -1,5 +1,5 @@
 //
-//  ParsingService.swift
+//  Event.swift
 //  NSManchester
 //
 //  Created by Ross Butler on 21/10/2016.

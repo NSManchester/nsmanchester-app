@@ -14,16 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        // Update feed data
         NetworkService().update()
+        
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        
         return true;
     }
 }

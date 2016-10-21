@@ -10,7 +10,9 @@ import Foundation
 
 let NSMNetworkUpdateNotification = "network-update-notification"
 
-class NetworkService : NSObject {
+class NetworkService {
+    
+    private let parsingService : ParsingService = NSJONSerializationParsingService()
     
     func update(_ completion: (()->())? = nil) {
         
@@ -18,13 +20,14 @@ class NetworkService : NSObject {
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         let request = NSMutableURLRequest(url: URL(string: "https://raw.githubusercontent.com/NSManchester/nsmanchester-app/master/NSManchester/NSManchester.json")!)
         request.httpMethod = "GET"
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: { [weak self] data, response, error in
             
             if (error == nil) {
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("Success: \(statusCode)")
                 
-                if let parsedData = ParsingService().parse(data!)
+                if let parsedData = self?.parsingService.parse(data!)
                 {
                     
                     let text = String(data: data!, encoding: String.Encoding.utf8)

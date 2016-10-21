@@ -13,6 +13,14 @@
 		1E1C69501C5C1CC400A6337C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1C694F1C5C1CC400A6337C /* MapKit.framework */; };
 		1E1C69551C5CE37900A6337C /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69541C5CE37900A6337C /* SocialViewController.swift */; };
 		1E1E8FB21C5AC64C00FA2DBC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E8FB11C5AC64C00FA2DBC /* DataService.swift */; };
+		1E2D16FE1DBAC8E0009CCFE8 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */; };
+		1E2D17001DBAC8EB009CCFE8 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */; };
+		1E2D17021DBAC910009CCFE8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17011DBAC910009CCFE8 /* Event.swift */; };
+		1E2D17041DBAC957009CCFE8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17031DBAC957009CCFE8 /* ParsingService.swift */; };
+		1E2D17051DBACA88009CCFE8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17031DBAC957009CCFE8 /* ParsingService.swift */; };
+		1E2D17061DBACA91009CCFE8 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17011DBAC910009CCFE8 /* Event.swift */; };
+		1E2D17071DBACA94009CCFE8 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */; };
+		1E2D17081DBACA96009CCFE8 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */; };
 		1E51D59E1C49880C00E6A951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D59D1C49880C00E6A951 /* AppDelegate.swift */; };
 		1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D59F1C49880C00E6A951 /* MenuViewController.swift */; };
 		1E51D5A31C49880C00E6A951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A11C49880C00E6A951 /* Main.storyboard */; };
@@ -20,7 +28,7 @@
 		1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A71C49880D00E6A951 /* Assets.xcassets */; };
 		1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */; };
 		1E51D5D31C49889800E6A951 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D21C49889800E6A951 /* NetworkService.swift */; };
-		1E51D5D51C49998500E6A951 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* ParsingService.swift */; };
+		1E51D5D51C49998500E6A951 /* NSJSONSerializationParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* NSJSONSerializationParsingService.swift */; };
 		1E51D5D71C499C8700E6A951 /* NSManchester.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5D61C499C8700E6A951 /* NSManchester.json */; };
 		1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */; };
 		1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */; };
@@ -33,7 +41,7 @@
 		F04D34DC1C8E106600DF3DD7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04D34DA1C8E106600DF3DD7 /* MainInterface.storyboard */; };
 		F04D34E01C8E106600DF3DD7 /* NSManchesterNextMeetup.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F04D34E51C8E141E00DF3DD7 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1E8FB11C5AC64C00FA2DBC /* DataService.swift */; };
-		F04D34E61C8E142B00DF3DD7 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* ParsingService.swift */; };
+		F04D34E61C8E142B00DF3DD7 /* NSJSONSerializationParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* NSJSONSerializationParsingService.swift */; };
 		F04D34E71C8E14B400DF3DD7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D21C49889800E6A951 /* NetworkService.swift */; };
 		F04D34E81C8E1A2400DF3DD7 /* NSManchester.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5D61C499C8700E6A951 /* NSManchester.json */; };
 		FBE73DDD1C8E208800DECC4D /* CFBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE73DDC1C8E208800DECC4D /* CFBundle.swift */; };
@@ -70,6 +78,10 @@
 		1E1C694F1C5C1CC400A6337C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1E1C69541C5CE37900A6337C /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
 		1E1E8FB11C5AC64C00FA2DBC /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
+		1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		1E2D17011DBAC910009CCFE8 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1E2D17031DBAC957009CCFE8 /* ParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		1E51D59A1C49880C00E6A951 /* NSManchester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSManchester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E51D59D1C49880C00E6A951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E51D59F1C49880C00E6A951 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +91,7 @@
 		1E51D5AA1C49880D00E6A951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E51D5AC1C49880D00E6A951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E51D5D21C49889800E6A951 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		1E51D5D41C49998500E6A951 /* ParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
+		1E51D5D41C49998500E6A951 /* NSJSONSerializationParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSJSONSerializationParsingService.swift; sourceTree = "<group>"; };
 		1E51D5D61C499C8700E6A951 /* NSManchester.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NSManchester.json; sourceTree = "<group>"; };
 		1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+CellSelectionColour.swift"; sourceTree = "<group>"; };
 		1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -176,7 +188,8 @@
 		1E1C694E1C5C0FC100A6337C /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				1E51D5D41C49998500E6A951 /* ParsingService.swift */,
+				1E51D5D41C49998500E6A951 /* NSJSONSerializationParsingService.swift */,
+				1E2D17031DBAC957009CCFE8 /* ParsingService.swift */,
 			);
 			name = Parsing;
 			sourceTree = "<group>";
@@ -218,6 +231,16 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		1E2D16FC1DBAC6F8009CCFE8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */,
+				1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */,
+				1E2D17011DBAC910009CCFE8 /* Event.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		1E51D5911C49880C00E6A951 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				1E1C694A1C5C049000A6337C /* Application */,
+				1E2D16FC1DBAC6F8009CCFE8 /* Model */,
 				1E1C694D1C5C0FA100A6337C /* Resources */,
 				1E51D5CE1C49883600E6A951 /* Services */,
 				1E1E8FAE1C5AC1B900FA2DBC /* UI */,
@@ -471,14 +495,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2D17001DBAC8EB009CCFE8 /* Speaker.swift in Sources */,
+				1E2D17041DBAC957009CCFE8 /* ParsingService.swift in Sources */,
 				1E51D5D31C49889800E6A951 /* NetworkService.swift in Sources */,
-				1E51D5D51C49998500E6A951 /* ParsingService.swift in Sources */,
+				1E2D16FE1DBAC8E0009CCFE8 /* Talk.swift in Sources */,
+				1E51D5D51C49998500E6A951 /* NSJSONSerializationParsingService.swift in Sources */,
 				1E1C69551C5CE37900A6337C /* SocialViewController.swift in Sources */,
 				1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */,
 				539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */,
 				1EF1373D1C5D79A3004DD7AE /* EventViewController.swift in Sources */,
 				1E51D5A61C49880D00E6A951 /* NSManchester.xcdatamodeld in Sources */,
 				1E51D59E1C49880C00E6A951 /* AppDelegate.swift in Sources */,
+				1E2D17021DBAC910009CCFE8 /* Event.swift in Sources */,
 				1E1E8FB21C5AC64C00FA2DBC /* DataService.swift in Sources */,
 				1E1C69471C5C046200A6337C /* WhoViewController.swift in Sources */,
 				1EF137331C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift in Sources */,
@@ -493,9 +521,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2D17051DBACA88009CCFE8 /* ParsingService.swift in Sources */,
+				1E2D17081DBACA96009CCFE8 /* Talk.swift in Sources */,
 				F04D34D91C8E106600DF3DD7 /* TodayViewController.swift in Sources */,
-				F04D34E61C8E142B00DF3DD7 /* ParsingService.swift in Sources */,
+				F04D34E61C8E142B00DF3DD7 /* NSJSONSerializationParsingService.swift in Sources */,
 				F04D34E71C8E14B400DF3DD7 /* NetworkService.swift in Sources */,
+				1E2D17071DBACA94009CCFE8 /* Speaker.swift in Sources */,
+				1E2D17061DBACA91009CCFE8 /* Event.swift in Sources */,
 				F04D34E51C8E141E00DF3DD7 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
