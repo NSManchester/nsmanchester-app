@@ -19,7 +19,6 @@
 		1E51D5A61C49880D00E6A951 /* NSManchester.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5A41C49880D00E6A951 /* NSManchester.xcdatamodeld */; };
 		1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A71C49880D00E6A951 /* Assets.xcassets */; };
 		1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */; };
-		1E51D5D11C49888C00E6A951 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D01C49888C00E6A951 /* NotificationsService.swift */; };
 		1E51D5D31C49889800E6A951 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D21C49889800E6A951 /* NetworkService.swift */; };
 		1E51D5D51C49998500E6A951 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* ParsingService.swift */; };
 		1E51D5D71C499C8700E6A951 /* NSManchester.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5D61C499C8700E6A951 /* NSManchester.json */; };
@@ -79,7 +78,6 @@
 		1E51D5A71C49880D00E6A951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E51D5AA1C49880D00E6A951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E51D5AC1C49880D00E6A951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1E51D5D01C49888C00E6A951 /* NotificationsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		1E51D5D21C49889800E6A951 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1E51D5D41C49998500E6A951 /* ParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		1E51D5D61C499C8700E6A951 /* NSManchester.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NSManchester.json; sourceTree = "<group>"; };
@@ -160,14 +158,6 @@
 				1E51D5D21C49889800E6A951 /* NetworkService.swift */,
 			);
 			name = Network;
-			sourceTree = "<group>";
-		};
-		1E1C694C1C5C04AE00A6337C /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				1E51D5D01C49888C00E6A951 /* NotificationsService.swift */,
-			);
-			name = Notifications;
 			sourceTree = "<group>";
 		};
 		1E1C694D1C5C0FA100A6337C /* Resources */ = {
@@ -263,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				1E1C694E1C5C0FC100A6337C /* Parsing */,
-				1E1C694C1C5C04AE00A6337C /* Notifications */,
 				1E1C694B1C5C04A000A6337C /* Network */,
 				1E1E8FB01C5AC63B00FA2DBC /* Data */,
 			);
@@ -484,7 +473,6 @@
 			files = (
 				1E51D5D31C49889800E6A951 /* NetworkService.swift in Sources */,
 				1E51D5D51C49998500E6A951 /* ParsingService.swift in Sources */,
-				1E51D5D11C49888C00E6A951 /* NotificationsService.swift in Sources */,
 				1E1C69551C5CE37900A6337C /* SocialViewController.swift in Sources */,
 				1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */,
 				539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */,
