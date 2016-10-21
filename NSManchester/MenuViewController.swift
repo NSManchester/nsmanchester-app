@@ -21,7 +21,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         menuOptions = DataService().mainMenuOptions()
         super.init(coder: aDecoder)
         
-       NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload:", name: NSMNetworkUpdateNotification, object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
     }
     
     override func viewDidLoad() {
@@ -32,56 +32,55 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if(tableView != nil)
         {
             if let selectedIndex = tableView?.indexPathForSelectedRow
             {
-                tableView?.deselectRowAtIndexPath(selectedIndex, animated: true)
+                tableView?.deselectRow(at: selectedIndex, animated: true)
             }
         }
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cellIdentifier = menuOptions?[indexPath.row].cellIdentifier
+        if let cellIdentifier = menuOptions?[(indexPath as NSIndexPath).row].cellIdentifier
         {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath);
-        if indexPath.row != 0
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
+        if (indexPath as NSIndexPath).row != 0
         {
-            cell.textLabel?.text = menuOptions?[indexPath.row].title
+            cell.textLabel?.text = menuOptions?[(indexPath as NSIndexPath).row].title
         }
-        if let subtitle = menuOptions?[indexPath.row].subtitle
+        if let subtitle = menuOptions?[(indexPath as NSIndexPath).row].subtitle
         {
             cell.detailTextLabel?.text = subtitle
         }
         let selectedBackgroundView = UIView(frame: cell.frame)
         selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
-            cell
         cell.selectedBackgroundView = selectedBackgroundView
         return cell
         }
-        return tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath)
+        return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
     }
     
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (menuOptions != nil) ? menuOptions!.count : 0;
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         var height = 80 as CGFloat
-        switch(indexPath.row)
+        switch((indexPath as NSIndexPath).row)
         {
         case 0:
             height = 300
@@ -97,25 +96,25 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: UITableViewDelegate
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let segueIdentifier = menuOptions?[indexPath.row].segue
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let segueIdentifier = menuOptions?[(indexPath as NSIndexPath).row].segue
         {
-            self.performSegueWithIdentifier(segueIdentifier, sender: tableView)
+            self.performSegue(withIdentifier: segueIdentifier, sender: tableView)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        NotificationCenter.default.removeObserver(self)
     }
     
-    @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
     
     // Notifications
     
-    @objc func reload(notification: NSNotification){
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+    @objc func reload(_ notification: Notification){
+        DispatchQueue.main.async { [unowned self] in
             self.tableView?.reloadData()
         }
     }

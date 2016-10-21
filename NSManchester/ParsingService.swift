@@ -28,9 +28,9 @@ class Talk {
 }
 
 class Event {
-    let date: NSDate
+    let date: Date
     let talks: Array<Talk>
-    init(date: NSDate, talks: Array<Talk>) {
+    init(date: Date, talks: Array<Talk>) {
         self.date = date
         self.talks = talks
     }
@@ -39,17 +39,17 @@ class Event {
 class ParsingService : NSObject {
     
     // TODO: Re-implement without using NSJSONSerializaton - too many if lets
-    func parse(data: NSData) -> Array<Event>? {
+    func parse(_ data: Data) -> Array<Event>? {
         
         var result = Array<Event>()
         do{
-            let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
             
-            if let speakers = json?.objectForKey("speakers") as? NSDictionary, events = json?.objectForKey("events") as? NSArray
+            if let speakers = json?.object(forKey: "speakers") as? NSDictionary, let events = json?.object(forKey: "events") as? NSArray
             {
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.locale = NSLocale(localeIdentifier: "en_GB")
-                dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "en_GB")
+                dateFormatter.dateStyle = DateFormatter.Style.short
                 
                 // Iterate over events array
                 for event in events {
@@ -59,18 +59,18 @@ class ParsingService : NSObject {
                         
                         var talks = Array<Talk>()
                         
-                        if let talkDate = eventDictionary.objectForKey("date") as? String {
+                        if let talkDate = eventDictionary.object(forKey: "date") as? String {
                             
-                            if let date = dateFormatter.dateFromString(talkDate),
-                                tempTalks = eventDictionary.objectForKey("talks") as? NSArray {
+                            if let date = dateFormatter.date(from: talkDate),
+                                let tempTalks = eventDictionary.object(forKey: "talks") as? NSArray {
                                     
                                     for talk in tempTalks {
                                         if let talkDictionary = talk as? NSDictionary,
-                                            speakerStr = talkDictionary.objectForKey("speaker"),
-                                            speakerDict = speakers.objectForKey(speakerStr) as? NSDictionary,
-                                            speakerForename = speakerDict.objectForKey("forename") as? String,
-                                            speakerSurname = speakerDict.objectForKey("surname") as? String,
-                                            title = talkDictionary.objectForKey("title") as? String
+                                            let speakerStr = talkDictionary.object(forKey: "speaker"),
+                                            let speakerDict = speakers.object(forKey: speakerStr) as? NSDictionary,
+                                            let speakerForename = speakerDict.object(forKey: "forename") as? String,
+                                            let speakerSurname = speakerDict.object(forKey: "surname") as? String,
+                                            let title = talkDictionary.object(forKey: "title") as? String
                                         {
                                             let speaker = Speaker(forename: speakerForename, surname: speakerSurname)
                                             let talk = Talk(title: title, speaker: speaker)

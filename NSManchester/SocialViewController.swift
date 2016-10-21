@@ -20,31 +20,31 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
         menuOptions = DataService().socialMenuOptions()
         super.init(coder: aDecoder)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload:", name: NSMNetworkUpdateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SocialViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if let selectedIndex = tableView.indexPathForSelectedRow
         {
-            tableView.deselectRowAtIndexPath(selectedIndex, animated: true)
+            tableView.deselectRow(at: selectedIndex, animated: true)
         }
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOptions.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = menuOptions[indexPath.row].cellIdentifier
-        let cell =  tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath);
-        cell.textLabel?.text = menuOptions[indexPath.row].title
-        if let subtitle = menuOptions[indexPath.row].subtitle
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = menuOptions[(indexPath as NSIndexPath).row].cellIdentifier
+        let cell =  tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
+        cell.textLabel?.text = menuOptions[(indexPath as NSIndexPath).row].title
+        if let subtitle = menuOptions[(indexPath as NSIndexPath).row].subtitle
         {
             cell.detailTextLabel?.text = subtitle
         }
@@ -55,28 +55,28 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let urlScheme = menuOptions[indexPath.row].urlScheme
+        if let urlScheme = menuOptions[(indexPath as NSIndexPath).row].urlScheme
         {
-            if(UIApplication.sharedApplication().canOpenURL(NSURL(string:urlScheme)!))
+            if(UIApplication.shared.canOpenURL(URL(string:urlScheme)!))
             {
-                UIApplication.sharedApplication().openURL(NSURL(string:urlScheme)!)
+                UIApplication.shared.openURL(URL(string:urlScheme)!)
             } else {
-                let safariViewController = SFSafariViewController(URL: NSURL(string: menuOptions[indexPath.row].subtitle!)!)
-                self.presentViewController(safariViewController, animated: true, completion: nil)
+                let safariViewController = SFSafariViewController(url: URL(string: menuOptions[(indexPath as NSIndexPath).row].subtitle!)!)
+                self.present(safariViewController, animated: true, completion: nil)
             }
         }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
     
     // Notifications
     
-    @objc func reload(notification: NSNotification){
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+    @objc func reload(_ notification: Notification){
+        DispatchQueue.main.async { [unowned self] in
             self.tableView.reloadData()
         }
     }

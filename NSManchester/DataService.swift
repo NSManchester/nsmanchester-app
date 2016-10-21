@@ -41,14 +41,14 @@ class DataService: NSObject {
         
         for event in events()!
         {
-            let menuOption = MenuOption(title: dateAsString(event.date), subtitle: "", segue: nil, cellIdentifier: "event", urlScheme: nil)
+            let menuOption = MenuOption(title: dateAsString(event.date as Date), subtitle: "", segue: nil, cellIdentifier: "event", urlScheme: nil)
             whenMenuOptions.append(menuOption)
         }
         
         return whenMenuOptions
     }
     
-    func eventMenuOptions(eventId: Int) -> Array<MenuOption> {
+    func eventMenuOptions(_ eventId: Int) -> Array<MenuOption> {
         
         var eventMenuOptions = Array<MenuOption>()
         
@@ -57,8 +57,8 @@ class DataService: NSObject {
         for talk in talks
         {
             var subtitle = talk.speaker.forename
-            subtitle.appendContentsOf(" ")
-            subtitle.appendContentsOf(talk.speaker.surname)
+            subtitle.append(" ")
+            subtitle.append(talk.speaker.surname)
             let menuOption = MenuOption(title: talk.title, subtitle: subtitle, segue: nil, cellIdentifier: "event", urlScheme: nil)
             eventMenuOptions.append(menuOption)
         }
@@ -69,49 +69,49 @@ class DataService: NSObject {
         return MenuOption(title: nextEventString(), subtitle: "", segue: nil, cellIdentifier:"", urlScheme: nil);
     }
     
-    private func events() -> Array<Event>? {
+    fileprivate func events() -> Array<Event>? {
         
         let file = "nsmanchester.json"
         
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = dir.stringByAppendingPathComponent(file);
+        if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
+            let path = dir.appendingPathComponent(file);
             
-            if let data = NSData(contentsOfFile: path)
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
             {
                 return ParsingService().parse(data)
             }
         }
-        let fileName = NSBundle.mainBundle().pathForResource("NSManchester", ofType: "json");
-        let data: NSData = try! NSData(contentsOfFile: fileName!, options: NSDataReadingOptions(rawValue: 0))
+        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
+        let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
         return ParsingService().parse(data)
     }
     
-    private func nextEventString() -> String {
+    fileprivate func nextEventString() -> String {
         var nextEvent = "First Monday of each month"
         if let events = events()
         {
             if events.count > 0
             {
-                nextEvent = dateAsString(events[0].date)
+                nextEvent = dateAsString(events[0].date as Date)
             }
         }
         return nextEvent
     }
     
-    private func dateAsString(date: NSDate) -> String {
+    fileprivate func dateAsString(_ date: Date) -> String {
         
         // Format date string
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMMM d"
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_GB")
-        var dateStr = dateFormatter.stringFromDate(date)
+        dateFormatter.locale = Locale(identifier: "en_GB")
+        var dateStr = dateFormatter.string(from: date)
         
         // Append ordinal suffix
-        let calendar = (NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!)
-        let day = calendar.component(.Day, fromDate: date)
+        let calendar = (Calendar(identifier: Calendar.Identifier.gregorian))
+        let day = (calendar as NSCalendar).component(.day, from: date)
         let suffixesStr = "|st|nd|rd|th|th|th|th|th|th|th|th|th|th|th|th|th|th|th|th|th|st|nd|rd|th|th|th|th|th|th|th|st"
-        let suffixes = suffixesStr.componentsSeparatedByString("|")
-        dateStr.appendContentsOf(suffixes[day])
+        let suffixes = suffixesStr.components(separatedBy: "|")
+        dateStr.append(suffixes[day])
         return dateStr
     }
     

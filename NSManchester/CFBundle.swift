@@ -13,7 +13,7 @@ let kCFBundleShortVersionString = "CFBundleShortVersionString"
 extension CFBundle {
     
     func shortVersionString() -> String? {
-        let value = CFBundleGetValueForInfoDictionaryKey(self, kCFBundleShortVersionString)
+        let value = CFBundleGetValueForInfoDictionaryKey(self, kCFBundleShortVersionString as CFString!)
         return value as? String
     }
     

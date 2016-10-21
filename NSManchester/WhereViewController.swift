@@ -35,19 +35,19 @@ class WhereViewController : UIViewController {
         mapView.delegate = self
         checkLocationAuthorizationStatus()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload:", name: NSMNetworkUpdateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WhereViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
         } else {
             locationManager.requestWhenInUseAuthorization()
@@ -55,7 +55,7 @@ class WhereViewController : UIViewController {
     }
     
     let regionRadius: CLLocationDistance = 100
-    func centerMapOnLocation(location: CLLocation) {
+    func centerMapOnLocation(_ location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
@@ -73,7 +73,7 @@ class WhereViewController : UIViewController {
             super.init()
         }
         func pinTintColor() -> UIColor  {
-            return UIColor.redColor()
+            return UIColor.red
         }
         func mapItem() -> MKMapItem {
             let addressDictionary = [String(CNPostalAddressStreetKey): subtitle!]
@@ -88,8 +88,8 @@ class WhereViewController : UIViewController {
     
     // Notifications
     
-    @objc func reload(notification: NSNotification){
-        dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+    @objc func reload(_ notification: Notification){
+        DispatchQueue.main.async { [unowned self] in
             self.mapView.reloadInputViews()
         }
     }

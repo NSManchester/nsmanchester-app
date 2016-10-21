@@ -10,12 +10,12 @@ import Foundation
 import MapKit
 
 extension WhereViewController: MKMapViewDelegate {
-    func mapView(mapView: MKMapView,
-        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView,
+        viewFor annotation: MKAnnotation) -> MKAnnotationView? {
             if let annotation = annotation as? MapLocation {
                 let identifier = "pin"
                 var view: MKPinAnnotationView
-                if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
                     as? MKPinAnnotationView {
                         dequeuedView.annotation = annotation
                         view = dequeuedView
@@ -24,7 +24,7 @@ extension WhereViewController: MKMapViewDelegate {
                     view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                     view.canShowCallout = true
                     view.calloutOffset = CGPoint(x: -5, y: 5)
-                    view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+                    view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
                 }
                 
                 view.pinTintColor = annotation.pinTintColor()
@@ -34,29 +34,29 @@ extension WhereViewController: MKMapViewDelegate {
             return nil
     }
     
-    func mapViewDidFinishLoadingMap(mapView: MKMapView) {
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         
         activityIndicatorView.stopAnimating()
     }
     
-    func mapViewDidFailLoadingMap(mapView: MKMapView, withError error: NSError) {
+    func mapViewDidFailLoadingMap(_ mapView: MKMapView, withError error: Error) {
         
         activityIndicatorView.stopAnimating()
         
-        let alertController = UIAlertController(title: "Unable to download map data", message: "Please check that you are connected to the Internet and try again.", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Unable to download map data", message: "Please check that you are connected to the Internet and try again.", preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
         }
         
         alertController.addAction(okAction)
         
-        self.presentViewController(alertController, animated: true) {
+        self.present(alertController, animated: true) {
         }
     }
     
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! MapLocation
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        location.mapItem().openInMapsWithLaunchOptions(launchOptions)
+        location.mapItem().openInMaps(launchOptions: launchOptions)
     }
 }

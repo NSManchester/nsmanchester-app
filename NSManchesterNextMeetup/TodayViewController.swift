@@ -35,24 +35,24 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func goToEvent(sender: AnyObject) {
-        if let url = NSURL(string: "nsmanchester://") {
-            extensionContext?.openURL(url, completionHandler: nil)
+    @IBAction func goToEvent(_ sender: AnyObject) {
+        if let url = URL(string: "nsmanchester://") {
+            extensionContext?.open(url, completionHandler: nil)
         }
     }
     
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         NetworkService().update {
             // Perform any setup necessary in order to update the view.
             if let menuOptions = DataService().todayViewOptions() {
                 self.dateField.text = menuOptions.title;
             }
-            completionHandler(NCUpdateResult.NewData)
+            completionHandler(NCUpdateResult.newData)
         }
 
     }
     
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+    func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
     }
     
