@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct Event {
+    
+    let date: Date
+    let talks: Array<Talk>
+    
+    init(date: Date, talks: Array<Talk>) {
+        self.date = date
+        self.talks = talks
+    }
+    
+}

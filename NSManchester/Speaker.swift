@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct Speaker {
+    
+    let forename: String
+    let surname: String
+    
+    init(forename: String, surname: String) {
+        self.forename = forename
+        self.surname = surname
+    }
+    
+}

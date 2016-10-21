@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol ParsingService {
+    
+    func parse(_ data: Data) -> Array<Event>?
+    
+}
