@@ -65,7 +65,7 @@ class DataService: NSObject {
         return eventMenuOptions
     }
     
-    func todayViewOptions() -> MenuOption? {
+    func todayViewOptions() -> MenuOption {
         return MenuOption(title: nextEventString(), subtitle: "", segue: nil, cellIdentifier:"", urlScheme: nil);
     }
     
