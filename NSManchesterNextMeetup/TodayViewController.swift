@@ -10,29 +10,27 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
     @IBOutlet weak var dateField: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
         
-//        // Update text field with date of next meetup
+        // Update text field with date of next meetup
         if let menuOptions = DataService().todayViewOptions() {
             self.dateField.text = menuOptions.title;
         }
         NetworkService().update {
-            // Perform any setup necessary in order to update the view.
+            
             if let menuOptions = DataService().todayViewOptions() {
                 self.dateField.text = menuOptions.title;
             }
         }
-
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func goToEvent(_ sender: AnyObject) {
@@ -43,13 +41,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         NetworkService().update {
-            // Perform any setup necessary in order to update the view.
             if let menuOptions = DataService().todayViewOptions() {
                 self.dateField.text = menuOptions.title;
             }
             completionHandler(NCUpdateResult.newData)
         }
-
+        
     }
     
     func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
