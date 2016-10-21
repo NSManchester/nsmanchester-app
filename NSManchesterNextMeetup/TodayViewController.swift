@@ -17,14 +17,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         
         // Update text field with date of next meetup
-        if let menuOptions = DataService().todayViewOptions() {
-            self.dateField.text = menuOptions.title;
-        }
-        NetworkService().update {
-            
-            if let menuOptions = DataService().todayViewOptions() {
-                self.dateField.text = menuOptions.title;
-            }
+
+        dateField.text = DataService().todayViewOptions().title
+        
+        NetworkService().update { [weak self] in
+            self?.dateField.text = DataService().todayViewOptions().title
         }
         
     }
@@ -40,11 +37,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        NetworkService().update {
-            if let menuOptions = DataService().todayViewOptions() {
-                self.dateField.text = menuOptions.title;
-            }
+        
+        NetworkService().update { [weak self] in
+            
+            self?.dateField.text = DataService().todayViewOptions().title
             completionHandler(NCUpdateResult.newData)
+            
         }
         
     }
