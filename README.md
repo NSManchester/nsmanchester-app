@@ -1,6 +1,6 @@
 # NSManchester for iOS
 
-[![Build Status](https://travis-ci.org/NSManchester/nsmanchester-app.svg?branch=master)](https://travis-ci.org/NSManchester/nsmanchester-app-ios)
+[![Build Status](https://travis-ci.org/NSManchester/nsmanchester-app-ios.svg?branch=master)](https://travis-ci.org/NSManchester/nsmanchester-app-ios)
 [![Twitter](https://img.shields.io/badge/twitter-%40NSManchester-blue.svg)](http://twitter.com/NSManchester)
 
 Find out what's upcoming at [NSManchester](http://www.meetup.com/NSManchester/), how to find us, directions as well as the latest social updates. For all iOS / OS X development enthusiasts in the North West of the UK.
