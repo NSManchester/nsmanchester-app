@@ -72,12 +72,12 @@ class DefaultDataService: DataService {
             
             if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
             {
-                return parsingService.parse(data)
+                return parsingService.parse(data: data)
             }
         }
         let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
         let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
-        return parsingService.parse(data)
+        return parsingService.parse(data: data)
     }
     
     fileprivate func nextEventString() -> String {

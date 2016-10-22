@@ -31,7 +31,7 @@ class URLSessionNetworkingService: NetworkingService {
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("Success: \(statusCode)")
                 
-                if let parsedData = self?.parsingService.parse(data!)
+                if let parsedData = self?.parsingService.parse(data: data!)
                 {
                     
                     let text = String(data: data!, encoding: String.Encoding.utf8)
