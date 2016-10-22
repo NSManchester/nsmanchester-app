@@ -8,11 +8,15 @@
 
 import Foundation
 
-let NSMNetworkUpdateNotification = "network-update-notification"
-
-class NetworkService {
+extension Notification.Name {
     
-    private let parsingService : ParsingService = NSJONSerializationParsingService()
+    static let FeedDataUpdated = Notification.Name("feed-data-updated-notification")
+    
+}
+
+class URLSessionNetworkingService: NetworkingService {
+    
+    private let parsingService : ParsingService = ServicesFactory.parsingService()
     
     func update(_ completion: (()->())? = nil) {
         
@@ -40,7 +44,7 @@ class NetworkService {
                         do {
                             
                             try text!.write(toFile: dirURL.path, atomically: false, encoding: String.Encoding.utf8)
-                            NotificationCenter.default.post(name: Notification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
+                            NotificationCenter.default.post(name: Notification.Name.FeedDataUpdated, object: nil)
                             
                             if let successBlock = completion {
                                 successBlock();
@@ -56,7 +60,7 @@ class NetworkService {
                 // Failure
                 print("Failure:", error!.localizedDescription);
             }
-        });
+            });
         task.resume()
     }
 }

@@ -11,16 +11,24 @@ import SafariServices
 
 class SocialViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // Outlets
     @IBOutlet var tableView: UITableView!
+    
+    // Services
+    private let dataService: DataService = ServicesFactory.dataService()
+    
     var menuOptions: Array<MenuOption>
     
     // MARK: View lifecycle
     
     required init?(coder aDecoder: NSCoder) {
-        menuOptions = DataService().socialMenuOptions()
+        
+        menuOptions = dataService.socialMenuOptions()
+        
         super.init(coder: aDecoder)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SocialViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SocialViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

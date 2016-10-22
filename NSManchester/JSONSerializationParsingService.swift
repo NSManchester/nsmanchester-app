@@ -10,7 +10,7 @@ import Foundation
 
 // TODO: Create ParsingService implementation without NSJSONSerialization - result in too many if-lets.
 
-class NSJONSerializationParsingService : ParsingService {
+class JSONSerializationParsingService : ParsingService {
     
     func parse(_ data: Data) -> Array<Event>? {
         

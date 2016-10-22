@@ -10,13 +10,22 @@ import UIKit
 
 class WhenViewController : UIViewController {
     
+    // Outlets
     @IBOutlet weak fileprivate var tableView: UITableView?
     
-    lazy var menuOptions: [MenuOption] = {
-        return DataService().whenMenuOptions()
-    }()
+    // Services
+    private let dataService: DataService = ServicesFactory.dataService()
+    
+    var menuOptions: [MenuOption] = []
     
     // MARK: View Lifecycle
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        menuOptions = dataService.whenMenuOptions()
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         if let selectedIndex = tableView?.indexPathForSelectedRow
@@ -33,7 +42,7 @@ class WhenViewController : UIViewController {
             let indexPath = tableView?.indexPathForSelectedRow!
             
             destination.titleText = menuOptions[((tableView?.indexPathForSelectedRow as NSIndexPath?)?.row)!].title
-            destination.menuOptions = DataService().eventMenuOptions(((tableView?.indexPathForSelectedRow as NSIndexPath?)?.row)!)
+            destination.menuOptions = dataService.eventMenuOptions(((tableView?.indexPathForSelectedRow as NSIndexPath?)?.row)!)
             
             // Centralise colours
             destination.backgroundColour = colorFor(indexPath!)

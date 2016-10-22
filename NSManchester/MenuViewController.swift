@@ -11,17 +11,25 @@ import Foundation
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // Outlets
     @IBOutlet var tableView: UITableView?
     @IBOutlet var versionLabel: UILabel?
+    
+    // Services
+    private let dataService: DataService = ServicesFactory.dataService()
+    
     var menuOptions: Array<MenuOption>?
     
     // MARK: View lifecycle
     
     required init?(coder aDecoder: NSCoder) {
-        menuOptions = DataService().mainMenuOptions()
+        
+        menuOptions = dataService.mainMenuOptions()
+        
         super.init(coder: aDecoder)
         
-       NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+        
     }
     
     override func viewDidLoad() {

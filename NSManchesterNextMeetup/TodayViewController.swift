@@ -11,17 +11,23 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
+    // Outlets
     @IBOutlet weak var dateField: UILabel!
     
+    // Services
+    private let dataService: DataService = ServicesFactory.dataService()
+    private let networkingService: NetworkingService = ServicesFactory.networkingService()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Update text field with date of next meetup
 
-        dateField.text = DataService().todayViewOptions().title
+        dateField.text = dataService.todayViewOptions().title
         
-        NetworkService().update { [weak self] in
-            self?.dateField.text = DataService().todayViewOptions().title
+        networkingService.update { [weak self] in
+            self?.dateField.text = self?.dataService.todayViewOptions().title
         }
         
     }
@@ -38,9 +44,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         
-        NetworkService().update { [weak self] in
+        networkingService.update { [weak self] in
             
-            self?.dateField.text = DataService().todayViewOptions().title
+            self?.dateField.text = self?.dataService.todayViewOptions().title
             completionHandler(NCUpdateResult.newData)
             
         }

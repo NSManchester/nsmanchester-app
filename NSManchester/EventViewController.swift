@@ -16,18 +16,25 @@ struct EventCell {
 
 class EventViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet var titleLabel: UILabel?
-    @IBOutlet var tableView: UITableView?
+    // Outlets
+    @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var titleLabel: UILabel?
+    
+    // Services
+    private let dataService: DataService = ServicesFactory.dataService()
     
     var titleText: String!
     var menuOptions: Array<MenuOption>?
     var backgroundColour: UIColor?
     
     required init?(coder aDecoder: NSCoder) {
-        menuOptions = DataService().whenMenuOptions()
+        
+        menuOptions = dataService.whenMenuOptions()
+        
         super.init(coder: aDecoder)
         
-         NotificationCenter.default.addObserver(self, selector: #selector(EventViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(EventViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+        
     }
     
     override func viewDidLoad() {

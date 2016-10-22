@@ -35,7 +35,7 @@ class WhereViewController : UIViewController {
         mapView.delegate = self
         checkLocationAuthorizationStatus()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(WhereViewController.reload(_:)), name: NSNotification.Name(rawValue: NSMNetworkUpdateNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WhereViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
