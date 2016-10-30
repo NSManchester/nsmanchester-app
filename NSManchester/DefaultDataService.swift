@@ -24,8 +24,10 @@ class DefaultDataService: DataService {
     
     func socialMenuOptions() -> Array<MenuOption> {
         return [
-            MenuOption(title: "facebook", subtitle: "https://www.facebook.com/nsmanchester", segue: nil, cellIdentifier: "facebook", urlScheme: "fb://profile?id=nsmanchester"),
-            MenuOption(title: "twitter", subtitle: "https://www.twitter.com/nsmanchester", segue: nil, cellIdentifier:"twitter", urlScheme: "twitter://user?screen_name=nsmanchester")
+            MenuOption(title: "website", subtitle: "http://nsmanchester.co.uk", segue: nil, cellIdentifier: "link", urlScheme: "http://nsmanchester.co.uk/"),
+            MenuOption(title: "meetup", subtitle: "https://meetup.com/nsmanchester", segue: nil, cellIdentifier: "link", urlScheme: "https://www.meetup.com/nsmanchester"),
+            MenuOption(title: "facebook", subtitle: "https://facebook.com/nsmanchester", segue: nil, cellIdentifier: "link", urlScheme: "fb://profile?id=nsmanchester"),
+            MenuOption(title: "twitter", subtitle: "https://twitter.com/nsmanchester", segue: nil, cellIdentifier: "link", urlScheme: "twitter://user?screen_name=nsmanchester"),
         ];
     }
     

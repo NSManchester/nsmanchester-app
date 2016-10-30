@@ -45,24 +45,11 @@ class WhenViewController : UIViewController {
             destination.menuOptions = dataService.eventMenuOptions(((tableView?.indexPathForSelectedRow as NSIndexPath?)?.row)!)
             
             // Centralise colours
-            destination.backgroundColour = colorFor(indexPath!)
+            destination.backgroundColour = UIColor.cell(for: indexPath!)
         }
     }
     
-    fileprivate func colorFor(_ indexPath: IndexPath) -> UIColor {
-        var result : UIColor = UIColor.white
-        switch((indexPath as NSIndexPath).row % 3)
-        {
-        case 0:
-            result = UIColor.burntSiennaColor()
-        case 1:
-            result = UIColor.hopbushColor()
-        case 2:
-            result = UIColor.waxFlowerColor()
-        default: break // Cannot occur mathematically
-        }
-        return result
-    }
+
 }
 
 extension WhenViewController: UITableViewDataSource {
@@ -76,7 +63,7 @@ extension WhenViewController: UITableViewDataSource {
         let cellIdentifier = menuOptions[(indexPath as NSIndexPath).row].cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
         
-        cell.contentView.backgroundColor = colorFor(indexPath)
+        cell.contentView.backgroundColor = UIColor.cell(for: indexPath)
         cell.textLabel?.text = menuOptions[(indexPath as NSIndexPath).row].title
         cell.textLabel?.backgroundColor = UIColor.clear
         
