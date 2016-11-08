@@ -51,22 +51,7 @@ class EventViewController : UIViewController, UITableViewDataSource, UITableView
         let cellIdentifier = menuOptions![(indexPath as NSIndexPath).row].cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
         
-        if ((indexPath as NSIndexPath).row + 1) % 1 == 0
-        {
-            cell.contentView.backgroundColor = UIColor(red: 238.0/255.0, green: 121.0/255.0, blue: 101.0/255.0, alpha: 1.0)
-        }
-        if ((indexPath as NSIndexPath).row + 1) % 2 == 0
-        {
-            cell.contentView.backgroundColor = UIColor(red: 192.0/255.0, green: 105.0/255.0, blue: 155.0/255.0, alpha: 1.0)
-        }
-        if ((indexPath as NSIndexPath).row + 1) % 3 == 0
-        {
-            cell.contentView.backgroundColor = UIColor(red: 239.0/255.0, green: 173.0/255.0, blue: 150.0/255.0, alpha: 1.0)
-        }
-        if ((indexPath as NSIndexPath).row + 1) % 4 == 0
-        {
-            cell.contentView.backgroundColor = UIColor.green
-        }
+        cell.contentView.backgroundColor = UIColor.cell(for: indexPath)
         
         let talkLabel = cell.viewWithTag(EventCell.TalkLabelId) as? UILabel;
         let authorLabel = cell.viewWithTag(EventCell.AuthorLabelId) as? UILabel;

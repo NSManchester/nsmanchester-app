@@ -45,17 +45,24 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions.count;
+        return menuOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = menuOptions[(indexPath as NSIndexPath).row].cellIdentifier
-        let cell =  tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
+        let cell =  tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
         cell.textLabel?.text = menuOptions[(indexPath as NSIndexPath).row].title
+        
         if let subtitle = menuOptions[(indexPath as NSIndexPath).row].subtitle
         {
-            cell.detailTextLabel?.text = subtitle
+            let urlString = subtitle.replacingOccurrences(of: "https://", with: "").replacingOccurrences(of: "http://", with: "")
+            
+            cell.detailTextLabel?.text = urlString
         }
+        
+        cell.contentView.backgroundColor = UIColor.cell(for: indexPath, offset: 2)
+        
         let selectedBackgroundView = UIView(frame: cell.frame)
         selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
         cell.selectedBackgroundView = selectedBackgroundView
@@ -70,7 +77,9 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
             if(UIApplication.shared.canOpenURL(URL(string:urlScheme)!))
             {
                 UIApplication.shared.openURL(URL(string:urlScheme)!)
-            } else {
+            }
+            else
+            {
                 let safariViewController = SFSafariViewController(url: URL(string: menuOptions[(indexPath as NSIndexPath).row].subtitle!)!)
                 self.present(safariViewController, animated: true, completion: nil)
             }
