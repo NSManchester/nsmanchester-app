@@ -19,3 +19,33 @@ struct Event {
     }
     
 }
+
+// For now, should be sufficient to compare event dates
+
+extension Event: Equatable {
+    
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        return lhs.date == rhs.date
+    }
+    
+}
+
+extension Event: Comparable {
+    
+    static func <=(lhs: Event, rhs: Event) -> Bool {
+        return lhs.date <= rhs.date
+    }
+    
+    static func >(lhs: Event, rhs: Event) -> Bool {
+        return lhs.date > rhs.date
+    }
+    
+    static func >=(lhs: Event, rhs: Event) -> Bool {
+        return lhs.date >= rhs.date
+    }
+    
+    static func <(lhs: Event, rhs: Event) -> Bool {
+        return lhs.date < rhs.date
+    }
+    
+}

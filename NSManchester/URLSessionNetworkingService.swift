@@ -18,11 +18,11 @@ class URLSessionNetworkingService: NetworkingService {
     
     private let parsingService : ParsingService = ServicesFactory.parsingService()
     
-    func update(_ completion: (()->())? = nil) {
+    func update(_ completion: ((Data) -> ())? = nil) {
         
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-        let request = NSMutableURLRequest(url: URL(string: "https://raw.githubusercontent.com/NSManchester/nsmanchester-app/master/NSManchester/NSManchester.json")!)
+        let request = NSMutableURLRequest(url: Endpoints.events.url)
         request.httpMethod = "GET"
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: { [weak self] data, response, error in
@@ -31,11 +31,11 @@ class URLSessionNetworkingService: NetworkingService {
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("Success: \(statusCode)")
                 
-                if let parsedData = self?.parsingService.parse(data: data!)
+                if let data = data, let _ = self?.parsingService.parse(data: data)
                 {
                     
-                    let text = String(data: data!, encoding: String.Encoding.utf8)
-                    print(parsedData)
+                    let text = String(data: data, encoding: String.Encoding.utf8)
+                    
                     let file = "nsmanchester.json"
                     if let dir : String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
                         
@@ -47,7 +47,7 @@ class URLSessionNetworkingService: NetworkingService {
                             NotificationCenter.default.post(name: Notification.Name.FeedDataUpdated, object: nil)
                             
                             if let successBlock = completion {
-                                successBlock();
+                                successBlock(data)
                             }
                             
                         }

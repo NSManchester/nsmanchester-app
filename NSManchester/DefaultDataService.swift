@@ -24,10 +24,26 @@ class DefaultDataService: DataService {
     
     func socialMenuOptions() -> Array<MenuOption> {
         return [
-            MenuOption(title: "website", subtitle: "http://nsmanchester.co.uk", segue: nil, cellIdentifier: "link", urlScheme: "http://nsmanchester.co.uk/"),
-            MenuOption(title: "meetup", subtitle: "https://meetup.com/nsmanchester", segue: nil, cellIdentifier: "link", urlScheme: "https://www.meetup.com/nsmanchester"),
-            MenuOption(title: "facebook", subtitle: "https://facebook.com/nsmanchester", segue: nil, cellIdentifier: "link", urlScheme: "fb://profile?id=nsmanchester"),
-            MenuOption(title: "twitter", subtitle: "https://twitter.com/nsmanchester", segue: nil, cellIdentifier: "link", urlScheme: "twitter://user?screen_name=nsmanchester"),
+            MenuOption(title: "website",
+                       subtitle: Endpoints.website.string,
+                       segue: nil,
+                       cellIdentifier: "link",
+                       urlScheme: Endpoints.website.string),
+            MenuOption(title: "meetup",
+                       subtitle: Endpoints.meetup.string,
+                       segue: nil,
+                       cellIdentifier: "link",
+                       urlScheme: Endpoints.meetup.string),
+            MenuOption(title: "facebook",
+                       subtitle: Endpoints.facebook.string,
+                       segue: nil,
+                       cellIdentifier: "link",
+                       urlScheme: Endpoints.twitterURLScheme.string),
+            MenuOption(title: "twitter",
+                       subtitle: Endpoints.twitter.string,
+                       segue: nil,
+                       cellIdentifier: "link",
+                       urlScheme: Endpoints.twitterURLScheme.string),
         ];
     }
     
@@ -74,23 +90,41 @@ class DefaultDataService: DataService {
             
             if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
             {
-                return parsingService.parse(data: data)
+                let unsortedEvents = parsingService.parse(data: data)
+                return sortEventsInDescendingOrder(unsortedEvents: unsortedEvents)
             }
         }
+        
         let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
         let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
-        return parsingService.parse(data: data)
+        let unsortedEvents =  parsingService.parse(data: data)
+        
+        return sortEventsInDescendingOrder(unsortedEvents: unsortedEvents)
+    }
+    
+    func sortEventsInDescendingOrder(unsortedEvents: Array<Event>?) -> Array<Event>? {
+        
+        if let unsortedEvents = unsortedEvents
+        {
+            let sortedEvents = unsortedEvents.sorted {
+                return $0 > $1
+            }
+            
+            return sortedEvents
+        }
+        
+        return unsortedEvents
     }
     
     fileprivate func nextEventString() -> String {
+        
         var nextEvent = "First Monday of each month"
-        if let events = events()
+        
+        if let events = events(), events.count > 0
         {
-            if events.count > 0
-            {
-                nextEvent = dateAsString(events[0].date as Date)
-            }
+            nextEvent = dateAsString(events[0].date as Date)
         }
+        
         return nextEvent
     }
     

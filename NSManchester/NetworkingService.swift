@@ -10,6 +10,6 @@ import Foundation
 
 protocol NetworkingService {
     
-    func update(_ completion: (()->())?)
+    func update(_ completion: ((Data)->())?)
     
 }

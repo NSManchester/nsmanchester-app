@@ -26,7 +26,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         dateField.text = dataService.todayViewOptions().title
         
-        networkingService.update { [weak self] in
+        networkingService.update { [weak self] (data) -> () in
             self?.dateField.text = self?.dataService.todayViewOptions().title
         }
         
@@ -44,7 +44,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         
-        networkingService.update { [weak self] in
+        networkingService.update { [weak self] (data) -> () in
             
             self?.dateField.text = self?.dataService.todayViewOptions().title
             completionHandler(NCUpdateResult.newData)

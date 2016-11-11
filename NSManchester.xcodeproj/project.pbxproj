@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E09CD991DD67CE90033A59C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */; };
 		1E1C69451C5C045400A6337C /* WhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69441C5C045400A6337C /* WhenViewController.swift */; };
 		1E1C69471C5C046200A6337C /* WhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69461C5C046200A6337C /* WhoViewController.swift */; };
 		1E1C69491C5C048300A6337C /* WhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69481C5C048300A6337C /* WhereViewController.swift */; };
@@ -38,6 +39,9 @@
 		1E51D5D51C49998500E6A951 /* JSONSerializationParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D41C49998500E6A951 /* JSONSerializationParsingService.swift */; };
 		1E51D5D71C499C8700E6A951 /* NSManchester.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5D61C499C8700E6A951 /* NSManchester.json */; };
 		1EC5A1D51DBAD57D00FA1DF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17101DBAD297009CCFE8 /* DataService.swift */; };
+		1EC5A1D71DBC203800FA1DF8 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */; };
+		1EC5A1DA1DBC214800FA1DF8 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */; };
+		1EC5A1DC1DBC217100FA1DF8 /* FilePersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1DB1DBC217100FA1DF8 /* FilePersistenceService.swift */; };
 		1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */; };
 		1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */; };
 		1EF137311C5D1F78004DD7AE /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF137301C5D1F78004DD7AE /* Contacts.framework */; };
@@ -105,6 +109,9 @@
 		1E51D5D21C49889800E6A951 /* URLSessionNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkingService.swift; sourceTree = "<group>"; };
 		1E51D5D41C49998500E6A951 /* JSONSerializationParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializationParsingService.swift; sourceTree = "<group>"; };
 		1E51D5D61C499C8700E6A951 /* NSManchester.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NSManchester.json; sourceTree = "<group>"; };
+		1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		1EC5A1DB1DBC217100FA1DF8 /* FilePersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePersistenceService.swift; sourceTree = "<group>"; };
 		1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+CellSelectionColour.swift"; sourceTree = "<group>"; };
 		1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1EF137301C5D1F78004DD7AE /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
@@ -252,6 +259,7 @@
 				1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */,
 				1E2D17011DBAC910009CCFE8 /* Event.swift */,
 				1E2D170D1DBAD25E009CCFE8 /* MenuOption.swift */,
+				1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,12 +307,22 @@
 		1E51D5CE1C49883600E6A951 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1EC5A1D81DBC212A00FA1DF8 /* Persistence */,
 				1E2D170B1DBACD69009CCFE8 /* Service Bindings */,
 				1E1E8FB01C5AC63B00FA2DBC /* Data */,
 				1E1C694B1C5C04A000A6337C /* Network */,
 				1E1C694E1C5C0FC100A6337C /* Parsing */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		1EC5A1D81DBC212A00FA1DF8 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */,
+				1EC5A1DB1DBC217100FA1DF8 /* FilePersistenceService.swift */,
+			);
+			name = Persistence;
 			sourceTree = "<group>";
 		};
 		1EF137361C5D3BE3004DD7AE /* Extensions */ = {
@@ -519,6 +537,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC5A1DA1DBC214800FA1DF8 /* PersistenceService.swift in Sources */,
 				1E2D17001DBAC8EB009CCFE8 /* Speaker.swift in Sources */,
 				1E2D17041DBAC957009CCFE8 /* ParsingService.swift in Sources */,
 				1E51D5D31C49889800E6A951 /* URLSessionNetworkingService.swift in Sources */,
@@ -529,6 +548,7 @@
 				1E51D5D51C49998500E6A951 /* JSONSerializationParsingService.swift in Sources */,
 				1E1C69551C5CE37900A6337C /* SocialViewController.swift in Sources */,
 				1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */,
+				1EC5A1DC1DBC217100FA1DF8 /* FilePersistenceService.swift in Sources */,
 				539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */,
 				1EF1373D1C5D79A3004DD7AE /* EventViewController.swift in Sources */,
 				1E51D5A61C49880D00E6A951 /* NSManchester.xcdatamodeld in Sources */,
@@ -541,6 +561,7 @@
 				1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */,
 				FBE73DDD1C8E208800DECC4D /* CFBundle.swift in Sources */,
 				1E1C69491C5C048300A6337C /* WhereViewController.swift in Sources */,
+				1EC5A1D71DBC203800FA1DF8 /* Endpoints.swift in Sources */,
 				1E1C69451C5C045400A6337C /* WhenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +572,7 @@
 			files = (
 				1E2D17051DBACA88009CCFE8 /* ParsingService.swift in Sources */,
 				1E2D17081DBACA96009CCFE8 /* Talk.swift in Sources */,
+				1E09CD991DD67CE90033A59C /* Endpoints.swift in Sources */,
 				F04D34D91C8E106600DF3DD7 /* TodayViewController.swift in Sources */,
 				1EC5A1D51DBAD57D00FA1DF8 /* DataService.swift in Sources */,
 				1E2D170F1DBAD277009CCFE8 /* MenuOption.swift in Sources */,

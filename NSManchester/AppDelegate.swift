@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Services
-    private let networkingService: NetworkingService = ServicesFactory.networkingService()
+    private let networkingService = ServicesFactory.networkingService()
     
     var window: UIWindow?
 
@@ -23,12 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         
         // Update feed data
-        networkingService.update({})
+        //networkingService.update({})
         
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         return true;
     }
+    
 }
 
