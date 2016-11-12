@@ -20,3 +20,7 @@ This application is as much a learning project for using Swift as it is an _awes
 NSManchester for iOS was originally created by [Ross Butler](https://github.com/rwbutler/) as a learning tool for a [Swift hack session](https://medium.com/@rwbutler/nsmanchester-swift-hack-session-15b145f11d4).
 
 Special thanks go to [our contributors](https://github.com/NSManchester/nsmanchester-app-ios/contributors).
+
+## License
+
+NSManchester for iOS is released under the MIT license. See LICENSE for details.
