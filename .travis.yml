@@ -1,4 +1,7 @@
 language: objective-c
 osx_image: xcode8
+install:
+  - ./install_swiftlint.sh
 script:
-    - xcodebuild clean build -workspace NSManchester.xcworkspace -scheme NSManchester -destination "platform=iOS Simulator,name=iPhone 6S" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  - xcodebuild clean build -workspace NSManchester.xcworkspace -scheme NSManchester -destination "platform=iOS Simulator,name=iPhone 6S" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+  - swiftlint
