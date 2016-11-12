@@ -17,7 +17,7 @@ This application is as much a learning project for using Swift as it is an _awes
 
 ## Coding Style
 
-A consistent coding style is enforced by use of [SwiftLint](https://github.com/realm/SwiftLint). Please download and install the version specified in the .travis.yml file and run before pushing changes to ensure that code consistency is maintained. The per-commit Travis CI build job will fail if linting rules are violated.
+A consistent coding style is enforced by use of [SwiftLint](https://github.com/realm/SwiftLint). Please download and install the version specified in the [.travis.yml](.travis.yml) file and run before pushing changes to ensure that code consistency is maintained. The per-commit Travis CI build job will fail if linting rules are violated.
 
 ## License
 
