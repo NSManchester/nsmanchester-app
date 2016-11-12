@@ -17,13 +17,11 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
     // Services
     private let dataService: DataService = ServicesFactory.dataService()
     
-    var menuOptions: Array<MenuOption>
+    var menuOptions: [MenuOption] = []
     
     // MARK: View lifecycle
     
     required init?(coder aDecoder: NSCoder) {
-        
-        menuOptions = dataService.socialMenuOptions()
         
         super.init(coder: aDecoder)
         
@@ -36,6 +34,27 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
         {
             tableView.deselectRow(at: selectedIndex, animated: true)
         }
+    }
+    
+    override func viewDidLoad() {
+        
+        dataService.socialMenuOptions(callback: { [weak self] results in
+            
+            switch results {
+                
+            case .success(let menuOptions):
+                
+                self?.menuOptions = menuOptions
+                self?.tableView.reloadData()
+                
+            case .failure( _):
+                
+                // TODO: Provide feedback e.g. stop activity indicator, present alert view etc.
+                
+                print("Unable to retrieve menu options.");
+            }
+            
+        })
     }
     
     deinit {

@@ -10,6 +10,8 @@ import Foundation
 
 protocol ParsingService {
     
-    func parse(data: Data) -> Array<Event>?
+    func parseEvents(data: Data) -> [Event]
+    
+    func parseSpeakers(data: Data) -> [Speaker]
     
 }

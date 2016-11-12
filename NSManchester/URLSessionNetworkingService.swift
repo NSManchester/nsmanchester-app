@@ -9,9 +9,7 @@
 import Foundation
 
 extension Notification.Name {
-    
     static let FeedDataUpdated = Notification.Name("feed-data-updated-notification")
-    
 }
 
 class URLSessionNetworkingService: NetworkingService {
@@ -31,7 +29,7 @@ class URLSessionNetworkingService: NetworkingService {
                 let statusCode = (response as! HTTPURLResponse).statusCode
                 print("Success: \(statusCode)")
                 
-                if let data = data, let _ = self?.parsingService.parse(data: data)
+                if let data = data, let _ = self?.parsingService.parseEvents(data: data)
                 {
                     
                     let text = String(data: data, encoding: String.Encoding.utf8)

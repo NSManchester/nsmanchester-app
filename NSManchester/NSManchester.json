@@ -1,34 +1,41 @@
 {
-    "speakers": {
-        "0": {
-            "forename": "Sam",
-            "surname": "Meadley"
-        },
-        "1": {
-            "forename": "Stuart",
-            "surname": "Sharpe"
-        },
-        "2": {
-            "forename": "Ross",
-            "surname": "Butler"
-        },
-        "3": {
-            "forename": "Pawel",
-            "surname": "Krawiec"
-        },
-        "4": {
-            "forename": "Kevin",
-            "surname": ""
-        },
-        "5": {
-            "forename": "Orta",
-            "surname": "Therox"
-        },
-        "6": {
-            "forename": "Matthew",
-            "surname": "Spear"
-        }
-    },
+    "speakers": [
+                 {
+                 "id": "0",
+                 "forename": "Sam",
+                 "surname": "Meadley"
+                 },
+                 {
+                 "id": "1",
+                 "forename": "Stuart",
+                 "surname": "Sharpe"
+                 },
+                 {
+                 "id": "2",
+                 "forename": "Ross",
+                 "surname": "Butler"
+                 },
+                 {
+                 "id": "3",
+                 "forename": "Pawel",
+                 "surname": "Krawiec"
+                 },
+                 {
+                 "id": "4",
+                 "forename": "Kevin",
+                 "surname": ""
+                 },
+                 {
+                 "id": "5",
+                 "forename": "Orta",
+                 "surname": "Therox"
+                 },
+                 {
+                 "id": "6",
+                 "forename": "Matthew",
+                 "surname": "Spear"
+                 }
+                 ],
     "events": [
                {
                "date": "05/12/16",

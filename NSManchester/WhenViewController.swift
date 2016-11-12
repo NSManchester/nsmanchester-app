@@ -11,7 +11,7 @@ import UIKit
 class WhenViewController : UIViewController {
     
     // Outlets
-    @IBOutlet weak fileprivate var tableView: UITableView?
+    @IBOutlet weak fileprivate var tableView: UITableView!
     
     // Services
     private let dataService: DataService = ServicesFactory.dataService()
@@ -20,13 +20,6 @@ class WhenViewController : UIViewController {
     
     // MARK: View Lifecycle
     
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-        menuOptions = dataService.whenMenuOptions()
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         if let selectedIndex = tableView?.indexPathForSelectedRow
         {
@@ -34,6 +27,25 @@ class WhenViewController : UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        dataService.whenMenuOptions(callback: { [weak self] results in
+            
+            switch results {
+                
+            case .success(let menuOptions):
+                
+                self?.menuOptions = menuOptions
+                self?.tableView.reloadData()
+                
+            case .failure( _):
+                
+                // TODO: Provide feedback e.g. stop activity indicator, present alert view etc.
+                
+                print("Unable to retrieve menu options.");
+            }
+            
+        })
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.destination is EventViewController
@@ -42,14 +54,17 @@ class WhenViewController : UIViewController {
             let indexPath = tableView?.indexPathForSelectedRow!
             
             destination.titleText = menuOptions[((tableView?.indexPathForSelectedRow as NSIndexPath?)?.row)!].title
-            destination.menuOptions = dataService.eventMenuOptions(((tableView?.indexPathForSelectedRow as NSIndexPath?)?.row)!)
+            
+            let row = (tableView?.indexPathForSelectedRow as NSIndexPath?)?.row
+            
+            destination.eventID = row!
             
             // Centralise colours
             destination.backgroundColour = UIColor.cell(for: indexPath!)
         }
     }
     
-
+    
 }
 
 extension WhenViewController: UITableViewDataSource {

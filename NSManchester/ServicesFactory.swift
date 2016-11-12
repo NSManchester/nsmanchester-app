@@ -24,7 +24,7 @@ struct ServicesFactory {
     
     static func parsingService() -> ParsingService {
         
-        return JSONSerializationParsingService()
+        return SwiftyJSONParsingService()
         
     }
     

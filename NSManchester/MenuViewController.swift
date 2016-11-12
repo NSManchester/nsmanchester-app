@@ -12,8 +12,8 @@ import Foundation
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
-    @IBOutlet var tableView: UITableView?
-    @IBOutlet var versionLabel: UILabel?
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var versionLabel: UILabel!
     
     // Services
     private let dataService: DataService = ServicesFactory.dataService()
@@ -24,11 +24,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     required init?(coder aDecoder: NSCoder) {
         
-        menuOptions = dataService.mainMenuOptions()
-        
         super.init(coder: aDecoder)
         
-       NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
         
     }
     
@@ -38,6 +36,25 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if let shortVersionString = CFBundleGetMainBundle().shortVersionString() {
             versionLabel?.text = NSLocalizedString("version ", comment: "") + shortVersionString;
         }
+        
+        dataService.mainMenuOptions(callback: { [weak self] results in
+            
+            switch results {
+                
+            case .success(let menuOptions):
+                
+                self?.menuOptions = menuOptions
+                self?.tableView.reloadData()
+                
+            case .failure( _):
+                
+                // TODO: Provide feedback e.g. stop activity indicator, present alert view etc.
+                
+                print("Unable to retrieve menu options.");
+            }
+            
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,19 +79,19 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if let cellIdentifier = menuOptions?[(indexPath as NSIndexPath).row].cellIdentifier
         {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
-        if (indexPath as NSIndexPath).row != 0
-        {
-            cell.textLabel?.text = menuOptions?[(indexPath as NSIndexPath).row].title
-        }
-        if let subtitle = menuOptions?[(indexPath as NSIndexPath).row].subtitle
-        {
-            cell.detailTextLabel?.text = subtitle
-        }
-        let selectedBackgroundView = UIView(frame: cell.frame)
-        selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
-        cell.selectedBackgroundView = selectedBackgroundView
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
+            if (indexPath as NSIndexPath).row != 0
+            {
+                cell.textLabel?.text = menuOptions?[(indexPath as NSIndexPath).row].title
+            }
+            if let subtitle = menuOptions?[(indexPath as NSIndexPath).row].subtitle
+            {
+                cell.detailTextLabel?.text = subtitle
+            }
+            let selectedBackgroundView = UIView(frame: cell.frame)
+            selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
+            cell.selectedBackgroundView = selectedBackgroundView
+            return cell
         }
         return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
     }

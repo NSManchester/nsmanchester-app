@@ -12,7 +12,7 @@ import Foundation
 
 class JSONSerializationParsingService : ParsingService {
     
-    func parse(data: Data) -> Array<Event>? {
+    func parseEvents(data: Data) -> [Event]? {
         
         var result = Array<Event>()
         do{

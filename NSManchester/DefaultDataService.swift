@@ -7,23 +7,33 @@
 //
 
 import Foundation
+import enum Result.Result
+
+public enum DataError : Error {
+    
+    // TODO: Extend with all possible cases we wish to handle.
+    
+    case dataUnavailable // generic error
+    case parsingFailure
+    
+}
 
 class DefaultDataService: DataService {
     
-    private let parsingService : ParsingService = JSONSerializationParsingService()
+    private let parsingService : ParsingService = ServicesFactory.parsingService()
     
-    func mainMenuOptions() -> Array<MenuOption> {
-        return [
+    func mainMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
+        callback(Result.success([
             MenuOption(title: "NSManchester", subtitle: "iOS developer group", segue: nil, cellIdentifier: "nsmanchester", urlScheme: nil),
             MenuOption(title: "when?", subtitle: nextEventString(), segue: "when", cellIdentifier:"when", urlScheme: nil),
             MenuOption(title: "where?", subtitle: "Madlab, 36-40 Edge Street, Manchester", segue: "where", cellIdentifier:"where", urlScheme: nil),
             MenuOption(title: "we're social!", subtitle: nil, segue: "social", cellIdentifier: "social", urlScheme: nil),
             MenuOption(title: "who?", subtitle: nil, segue: "who", cellIdentifier: "who", urlScheme: nil)
-        ];
+        ]));
     }
     
-    func socialMenuOptions() -> Array<MenuOption> {
-        return [
+    func socialMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
+        callback(Result.success([
             MenuOption(title: "website",
                        subtitle: Endpoints.website.string,
                        segue: nil,
@@ -44,12 +54,12 @@ class DefaultDataService: DataService {
                        segue: nil,
                        cellIdentifier: "link",
                        urlScheme: Endpoints.twitterURLScheme.string),
-        ];
+        ]));
     }
     
-    func whenMenuOptions() -> Array<MenuOption> {
+    func whenMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
         
-        var whenMenuOptions = Array<MenuOption>()
+        var whenMenuOptions = [MenuOption]()
         
         for event in events()!
         {
@@ -57,31 +67,40 @@ class DefaultDataService: DataService {
             whenMenuOptions.append(menuOption)
         }
         
-        return whenMenuOptions
+        return callback(Result.success(whenMenuOptions))
     }
     
-    func eventMenuOptions(_ eventId: Int) -> Array<MenuOption> {
+    func eventMenuOptions(_ eventId: Int, callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
         
-        var eventMenuOptions = Array<MenuOption>()
+        var eventMenuOptions = [MenuOption]()
         
         let event = events()![eventId]
         let talks = event.talks
         for talk in talks
         {
-            var subtitle = talk.speaker.forename
-            subtitle.append(" ")
-            subtitle.append(talk.speaker.surname)
-            let menuOption = MenuOption(title: talk.title, subtitle: subtitle, segue: nil, cellIdentifier: "event", urlScheme: nil)
+            let speaker = speakers()?.filter { $0.speakerID == talk.speaker }.first
+            
+            var subtitle = ""
+            if let speaker = speaker {
+                subtitle = String(format: "%@ %@", speaker.forename, speaker.surname)
+            }
+            
+            let menuOption = MenuOption(title: talk.title,
+                                        subtitle: subtitle,
+                                        segue: nil,
+                                        cellIdentifier: "event",
+                                        urlScheme: nil)
+            
             eventMenuOptions.append(menuOption)
         }
-        return eventMenuOptions
+        return callback(Result.success(eventMenuOptions))
     }
     
     func todayViewOptions() -> MenuOption {
         return MenuOption(title: nextEventString(), subtitle: "", segue: nil, cellIdentifier:"", urlScheme: nil);
     }
     
-    fileprivate func events() -> Array<Event>? {
+    fileprivate func speakers() -> [Speaker]? {
         
         let file = "nsmanchester.json"
         
@@ -90,19 +109,38 @@ class DefaultDataService: DataService {
             
             if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
             {
-                let unsortedEvents = parsingService.parse(data: data)
-                return sortEventsInDescendingOrder(unsortedEvents: unsortedEvents)
+                return parsingService.parseSpeakers(data: data)
             }
         }
         
         let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
         let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
-        let unsortedEvents =  parsingService.parse(data: data)
         
-        return sortEventsInDescendingOrder(unsortedEvents: unsortedEvents)
+        return parsingService.parseSpeakers(data: data)
     }
     
-    func sortEventsInDescendingOrder(unsortedEvents: Array<Event>?) -> Array<Event>? {
+    fileprivate func events() -> [Event]? {
+        
+        let file = "nsmanchester.json"
+        
+        if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
+            let path = dir.appendingPathComponent(file);
+            
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
+            {
+                let unsortedEvents = parsingService.parseEvents(data: data)
+                return eventsInDescendingOrder(unsortedEvents: unsortedEvents)
+            }
+        }
+        
+        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
+        let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
+        let unsortedEvents =  parsingService.parseEvents(data: data)
+        
+        return eventsInDescendingOrder(unsortedEvents: unsortedEvents)
+    }
+    
+    func eventsInDescendingOrder(unsortedEvents: [Event]?) -> [Event]? {
         
         if let unsortedEvents = unsortedEvents
         {
