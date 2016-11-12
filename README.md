@@ -15,12 +15,16 @@ This is the Git repository for the open-source NSManchester app for iOS [availab
 
 This application is as much a learning project for using Swift as it is an _awesome_ application, so feel free to use whichever new fancy APIs or syntax you want. We're all here to learn!
 
+## Coding Style
+
+A consistent coding style is enforced by use of [SwiftLint](https://github.com/realm/SwiftLint). Please download and install the version specified in the .travis.yml file and run before pushing changes to ensure that code consistency is maintained. The per-commit Travis CI build job will fail if linting rules are violated.
+
+## License
+
+NSManchester for iOS is released under the MIT license. See [LICENSE](LICENSE.md) for details.
+
 ## Credits
 
 NSManchester for iOS was originally created by [Ross Butler](https://github.com/rwbutler/) as a learning tool for a [Swift hack session](https://medium.com/@rwbutler/nsmanchester-swift-hack-session-15b145f11d4).
 
 Special thanks go to [our contributors](https://github.com/NSManchester/nsmanchester-app-ios/contributors).
-
-## License
-
-NSManchester for iOS is released under the MIT license. See [LICENSE](LICENSE.md) for details.
