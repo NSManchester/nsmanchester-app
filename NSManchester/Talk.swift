@@ -11,9 +11,9 @@ import Foundation
 struct Talk {
     
     let title: String
-    let speaker : Speaker
+    let speaker: Int
     
-    init(title: String, speaker: Speaker) {
+    init(title: String, speaker: Int) {
         self.title = title
         self.speaker = speaker
     }

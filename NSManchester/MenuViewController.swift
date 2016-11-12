@@ -12,8 +12,8 @@ import Foundation
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
-    @IBOutlet var tableView: UITableView?
-    @IBOutlet var versionLabel: UILabel?
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var versionLabel: UILabel!
     
     // Services
     private let dataService: DataService = ServicesFactory.dataService()
@@ -24,11 +24,12 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     required init?(coder aDecoder: NSCoder) {
         
-        menuOptions = dataService.mainMenuOptions()
-        
         super.init(coder: aDecoder)
         
-       NotificationCenter.default.addObserver(self, selector: #selector(MenuViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(MenuViewController.reload(_:)),
+                                               name: NSNotification.Name.FeedDataUpdated,
+                                               object: nil)
         
     }
     
@@ -36,17 +37,34 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         if let shortVersionString = CFBundleGetMainBundle().shortVersionString() {
-            versionLabel?.text = NSLocalizedString("version ", comment: "") + shortVersionString;
+            versionLabel?.text = NSLocalizedString("version ", comment: "") + shortVersionString
         }
+        
+        dataService.mainMenuOptions(callback: { [weak self] results in
+            
+            switch results {
+                
+            case .success(let menuOptions):
+                
+                self?.menuOptions = menuOptions
+                self?.tableView.reloadData()
+                
+            case .failure( _):
+                
+                // TODO: Provide feedback e.g. stop activity indicator, present alert view etc.
+                
+                print("Unable to retrieve menu options.")
+            }
+            
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if(tableView != nil)
-        {
-            if let selectedIndex = tableView?.indexPathForSelectedRow
-            {
+        if tableView != nil {
+            if let selectedIndex = tableView?.indexPathForSelectedRow {
                 tableView?.deselectRow(at: selectedIndex, animated: true)
             }
         }
@@ -60,53 +78,49 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cellIdentifier = menuOptions?[(indexPath as NSIndexPath).row].cellIdentifier
-        {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
-        if (indexPath as NSIndexPath).row != 0
-        {
-            cell.textLabel?.text = menuOptions?[(indexPath as NSIndexPath).row].title
-        }
-        if let subtitle = menuOptions?[(indexPath as NSIndexPath).row].subtitle
-        {
-            cell.detailTextLabel?.text = subtitle
-        }
-        let selectedBackgroundView = UIView(frame: cell.frame)
-        selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
-        cell.selectedBackgroundView = selectedBackgroundView
-        return cell
+        if let cellIdentifier = menuOptions?[(indexPath as NSIndexPath).row].cellIdentifier {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+            
+            if (indexPath as NSIndexPath).row != 0 {
+                cell.textLabel?.text = menuOptions?[(indexPath as NSIndexPath).row].title
+            }
+            
+            if let subtitle = menuOptions?[(indexPath as NSIndexPath).row].subtitle {
+                cell.detailTextLabel?.text = subtitle
+            }
+            
+            let selectedBackgroundView = UIView(frame: cell.frame)
+            selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
+            cell.selectedBackgroundView = selectedBackgroundView
+            return cell
         }
         return tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
     }
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (menuOptions != nil) ? menuOptions!.count : 0;
+        return (menuOptions != nil) ? menuOptions!.count : 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         var height = 80 as CGFloat
-        switch((indexPath as NSIndexPath).row)
-        {
+        switch (indexPath as NSIndexPath).row {
         case 0:
             height = 300
-            break;
+            break
         case 1:
             height = 120
             break
         default:
             height = 80
         }
-        return height;
+        return height
     }
     
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let segueIdentifier = menuOptions?[(indexPath as NSIndexPath).row].segue
-        {
+        if let segueIdentifier = menuOptions?[(indexPath as NSIndexPath).row].segue {
             self.performSegue(withIdentifier: segueIdentifier, sender: tableView)
         }
     }
@@ -121,10 +135,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // Notifications
     
-    @objc func reload(_ notification: Notification){
+    @objc func reload(_ notification: Notification) {
         DispatchQueue.main.async { [unowned self] in
             self.tableView?.reloadData()
         }
     }
 }
-

@@ -10,17 +10,16 @@ import Foundation
 
 // TODO: Create ParsingService implementation without NSJSONSerialization - result in too many if-lets.
 
-class JSONSerializationParsingService : ParsingService {
+class JSONSerializationParsingService: ParsingService {
     
-    func parse(data: Data) -> Array<Event>? {
+    func parseEvents(data: Data) -> [Event]? {
         
         var result = Array<Event>()
-        do{
+        do {
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
             
             if let speakers = json?.object(forKey: "speakers") as? NSDictionary,
-                let events = json?.object(forKey: "events") as? NSArray
-            {
+                let events = json?.object(forKey: "events") as? NSArray {
                 let dateFormatter = DateFormatter()
                 dateFormatter.locale = Locale(identifier: "en_GB")
                 dateFormatter.dateStyle = DateFormatter.Style.short
@@ -44,8 +43,7 @@ class JSONSerializationParsingService : ParsingService {
                                     let speakerDict = speakers.object(forKey: speakerStr) as? NSDictionary,
                                     let speakerForename = speakerDict.object(forKey: "forename") as? String,
                                     let speakerSurname = speakerDict.object(forKey: "surname") as? String,
-                                    let title = talkDictionary.object(forKey: "title") as? String
-                                {
+                                    let title = talkDictionary.object(forKey: "title") as? String {
                                     let speaker = Speaker(forename: speakerForename, surname: speakerSurname)
                                     let talk = Talk(title: title, speaker: speaker)
                                     talks.append(talk)
@@ -64,6 +62,6 @@ class JSONSerializationParsingService : ParsingService {
             NSLog("%@", error)
         }
         
-        return (result.count > 0) ? result : nil;
+        return (result.count > 0) ? result : nil
     }
 }

@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import enum Result.Result
 
 protocol DataService {
     
-    func mainMenuOptions() -> Array<MenuOption>
+    func mainMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ())
     
-    func socialMenuOptions() -> Array<MenuOption>
+    func socialMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ())
     
-    func whenMenuOptions() -> Array<MenuOption>
+    func whenMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ())
     
-    func eventMenuOptions(_ eventId: Int) -> Array<MenuOption>
+    func eventMenuOptions(_ eventId: Int, callback: @escaping (Result<[MenuOption], DataError>) -> ())
     
     func todayViewOptions() -> MenuOption
     

@@ -10,10 +10,12 @@ import Foundation
 
 struct Speaker {
     
+    let speakerID: Int
     let forename: String
     let surname: String
     
-    init(forename: String, surname: String) {
+    init(speakerID: Int, forename: String, surname: String) {
+        self.speakerID = speakerID
         self.forename = forename
         self.surname = surname
     }

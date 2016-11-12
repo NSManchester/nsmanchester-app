@@ -11,16 +11,16 @@ import Foundation
 struct Event {
     
     let date: Date
-    let talks: Array<Talk>
+    let talks: [Talk]
     
-    init(date: Date, talks: Array<Talk>) {
+    init(date: Date, talks: [Talk]) {
         self.date = date
         self.talks = talks
     }
     
 }
 
-// For now, should be sufficient to compare event dates
+// Should be sufficient to compare event dates for now
 
 extension Event: Equatable {
     
@@ -32,19 +32,19 @@ extension Event: Equatable {
 
 extension Event: Comparable {
     
-    static func <=(lhs: Event, rhs: Event) -> Bool {
+    static func <= (lhs: Event, rhs: Event) -> Bool {
         return lhs.date <= rhs.date
     }
     
-    static func >(lhs: Event, rhs: Event) -> Bool {
+    static func > (lhs: Event, rhs: Event) -> Bool {
         return lhs.date > rhs.date
     }
     
-    static func >=(lhs: Event, rhs: Event) -> Bool {
+    static func >= (lhs: Event, rhs: Event) -> Bool {
         return lhs.date >= rhs.date
     }
     
-    static func <(lhs: Event, rhs: Event) -> Bool {
+    static func < (lhs: Event, rhs: Event) -> Bool {
         return lhs.date < rhs.date
     }
     
