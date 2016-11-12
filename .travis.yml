@@ -5,6 +5,7 @@ install:
   - ./install_swiftlint.sh
 script:
   - bundle install
+  - travis lint .travis.yml 
   - bundle exec danger
   - swiftlint
   - xcodebuild clean build -workspace NSManchester.xcworkspace -scheme NSManchester -destination "platform=iOS Simulator,name=iPhone 6S" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
