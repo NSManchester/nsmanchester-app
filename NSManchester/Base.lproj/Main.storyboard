@@ -418,8 +418,7 @@
                                     <segue destination="QJn-Yh-zz3" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="1cn-LO-IWB"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Un-os-CnR">
-                                <frame key="frameInset" minX="-4" minY="94" width="328" height="386"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Un-os-CnR">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="cWF-PT-Bri"/>
                                 </constraints>

@@ -1,4 +1,3 @@
-
 //
 //  EventViewController.swift
 //  NSManchester
@@ -14,7 +13,7 @@ struct EventCell {
     static let AuthorLabelId = 2
 }
 
-class EventViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +32,10 @@ class EventViewController : UIViewController, UITableViewDataSource, UITableView
         
         super.init(coder: aDecoder)
         
-         NotificationCenter.default.addObserver(self, selector: #selector(EventViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+         NotificationCenter.default.addObserver(self,
+                                                selector: #selector(EventViewController.reload(_:)),
+                                                name: NSNotification.Name.FeedDataUpdated,
+                                                object: nil)
         
     }
     
@@ -54,7 +56,7 @@ class EventViewController : UIViewController, UITableViewDataSource, UITableView
                 
                 // TODO: Provide feedback e.g. stop activity indicator, present alert view etc.
                 
-                print("Unable to retrieve menu options.");
+                print("Unable to retrieve menu options.")
             }
             
             })
@@ -67,17 +69,16 @@ class EventViewController : UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = menuOptions![(indexPath as NSIndexPath).row].cellIdentifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath);
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
         cell.contentView.backgroundColor = UIColor.cell(for: indexPath)
         
-        let talkLabel = cell.viewWithTag(EventCell.TalkLabelId) as? UILabel;
-        let authorLabel = cell.viewWithTag(EventCell.AuthorLabelId) as? UILabel;
+        let talkLabel = cell.viewWithTag(EventCell.TalkLabelId) as? UILabel
+        let authorLabel = cell.viewWithTag(EventCell.AuthorLabelId) as? UILabel
         
         talkLabel?.text = menuOptions![(indexPath as NSIndexPath).row].title
         
-        if let subtitle = menuOptions![(indexPath as NSIndexPath).row].subtitle
-        {
+        if let subtitle = menuOptions![(indexPath as NSIndexPath).row].subtitle {
             authorLabel?.text = subtitle
         }
         
@@ -92,14 +93,13 @@ class EventViewController : UIViewController, UITableViewDataSource, UITableView
         return 120
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions!.count;
+        return menuOptions!.count
     }
     
     // Notifications
     
-    @objc func reload(_ notification: Notification){
+    @objc func reload(_ notification: Notification) {
         DispatchQueue.main.async { [unowned self] in
             self.tableView?.reloadData()
         }

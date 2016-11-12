@@ -54,7 +54,7 @@
 		1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */; };
 		1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */; };
 		1EF137311C5D1F78004DD7AE /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF137301C5D1F78004DD7AE /* Contacts.framework */; };
-		1EF137331C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF137321C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift */; };
+		1EF137331C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF137321C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift */; };
 		1EF1373D1C5D79A3004DD7AE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF1373C1C5D79A3004DD7AE /* EventViewController.swift */; };
 		539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B32761C8E1A5B002681A0 /* UIColor.swift */; };
 		B556372DCCEC2D52F6E599FA /* Pods_NSManchester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC8B7CBF2B941B540FF525F /* Pods_NSManchester.framework */; };
@@ -131,7 +131,7 @@
 		1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+CellSelectionColour.swift"; sourceTree = "<group>"; };
 		1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1EF137301C5D1F78004DD7AE /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
-		1EF137321C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WhereViewController +MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		1EF137321C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WhereViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		1EF1373C1C5D79A3004DD7AE /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		27180C7650B44F2ABF55EAA2 /* Pods-NSManchesterNextMeetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSManchesterNextMeetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSManchesterNextMeetup/Pods-NSManchesterNextMeetup.release.xcconfig"; sourceTree = "<group>"; };
 		539B32761C8E1A5B002681A0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				1E1C69481C5C048300A6337C /* WhereViewController.swift */,
-				1EF137321C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift */,
+				1EF137321C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift */,
 			);
 			name = Where;
 			sourceTree = "<group>";
@@ -280,12 +280,8 @@
 		1E2D16FC1DBAC6F8009CCFE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */,
-				1ED869861DD7144500E13783 /* Talk+JSONDecodable.swift */,
-				1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */,
-				1ED869841DD7140500E13783 /* Speaker+JSONDecodable.swift */,
-				1E2D17011DBAC910009CCFE8 /* Event.swift */,
-				1ED869881DD715AA00E13783 /* Event+JSONDecodable.swift */,
+				1ED8699C1DD7ADD200E13783 /* Model */,
+				1ED8697E1DD70BDD00E13783 /* View Model */,
 				1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */,
 			);
 			name = Model;
@@ -322,7 +318,6 @@
 		1E51D59C1C49880C00E6A951 /* NSManchester */ = {
 			isa = PBXGroup;
 			children = (
-				1ED8697E1DD70BDD00E13783 /* View Model */,
 				1E1C694A1C5C049000A6337C /* Application */,
 				1E2D16FC1DBAC6F8009CCFE8 /* Model */,
 				1E1C694D1C5C0FA100A6337C /* Resources */,
@@ -359,6 +354,19 @@
 				1E2D170D1DBAD25E009CCFE8 /* MenuOption.swift */,
 			);
 			name = "View Model";
+			sourceTree = "<group>";
+		};
+		1ED8699C1DD7ADD200E13783 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */,
+				1ED869861DD7144500E13783 /* Talk+JSONDecodable.swift */,
+				1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */,
+				1ED869841DD7140500E13783 /* Speaker+JSONDecodable.swift */,
+				1E2D17011DBAC910009CCFE8 /* Event.swift */,
+				1ED869881DD715AA00E13783 /* Event+JSONDecodable.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		1EF137361C5D3BE3004DD7AE /* Extensions */ = {
@@ -428,6 +436,7 @@
 				F04D34E41C8E106600DF3DD7 /* Embed App Extensions */,
 				DA631206354F3850AF3CF913 /* 📦 Embed Pods Frameworks */,
 				BFB1CFB70E4D2C4E45F158C8 /* 📦 Copy Pods Resources */,
+				1ED8699D1DD7B06F00E13783 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -527,6 +536,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1ED8699D1DD7B06F00E13783 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		28A4C41A02624FF6AFDD0587 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,7 +669,7 @@
 				1E2D17021DBAC910009CCFE8 /* Event.swift in Sources */,
 				1E1E8FB21C5AC64C00FA2DBC /* DefaultDataService.swift in Sources */,
 				1E1C69471C5C046200A6337C /* WhoViewController.swift in Sources */,
-				1EF137331C5D28D2004DD7AE /* WhereViewController +MKMapViewDelegate.swift in Sources */,
+				1EF137331C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift in Sources */,
 				1E2D170E1DBAD25E009CCFE8 /* MenuOption.swift in Sources */,
 				1ED869821DD70F6F00E13783 /* SwiftyJSONParsingService.swift in Sources */,
 				1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */,

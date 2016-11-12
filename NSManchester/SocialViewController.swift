@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class SocialViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SocialViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // Outlets
     @IBOutlet var tableView: UITableView!
@@ -25,13 +25,15 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
         
         super.init(coder: aDecoder)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SocialViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(SocialViewController.reload(_:)),
+                                               name: NSNotification.Name.FeedDataUpdated,
+                                               object: nil)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let selectedIndex = tableView.indexPathForSelectedRow
-        {
+        if let selectedIndex = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndex, animated: true)
         }
     }
@@ -51,7 +53,7 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
                 
                 // TODO: Provide feedback e.g. stop activity indicator, present alert view etc.
                 
-                print("Unable to retrieve menu options.");
+                print("Unable to retrieve menu options.")
             }
             
         })
@@ -73,8 +75,7 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
         
         cell.textLabel?.text = menuOptions[(indexPath as NSIndexPath).row].title
         
-        if let subtitle = menuOptions[(indexPath as NSIndexPath).row].subtitle
-        {
+        if let subtitle = menuOptions[(indexPath as NSIndexPath).row].subtitle {
             let urlString = subtitle.replacingOccurrences(of: "https://", with: "").replacingOccurrences(of: "http://", with: "")
             
             cell.detailTextLabel?.text = urlString
@@ -88,17 +89,13 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let urlScheme = menuOptions[(indexPath as NSIndexPath).row].urlScheme
-        {
-            if(UIApplication.shared.canOpenURL(URL(string:urlScheme)!))
-            {
+        if let urlScheme = menuOptions[(indexPath as NSIndexPath).row].urlScheme {
+            
+            if UIApplication.shared.canOpenURL(URL(string:urlScheme)!) {
                 UIApplication.shared.openURL(URL(string:urlScheme)!)
-            }
-            else
-            {
+            } else {
                 let safariViewController = SFSafariViewController(url: URL(string: menuOptions[(indexPath as NSIndexPath).row].subtitle!)!)
                 self.present(safariViewController, animated: true, completion: nil)
             }
@@ -111,7 +108,7 @@ class SocialViewController : UIViewController, UITableViewDataSource, UITableVie
     
     // Notifications
     
-    @objc func reload(_ notification: Notification){
+    @objc func reload(_ notification: Notification) {
         DispatchQueue.main.async { [unowned self] in
             self.tableView.reloadData()
         }

@@ -8,6 +8,5 @@
 
 import UIKit
 
-class WhoViewController : UIViewController {
-    
+class WhoViewController: UIViewController {
 }

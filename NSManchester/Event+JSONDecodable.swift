@@ -22,9 +22,11 @@ extension Event: JSONDecodable {
             return nil
         }
         date = parsedDate
+        
         talks = json["talks"].arrayValue.map {
             Talk(json: $0)
         }
+        
     }
     
 }

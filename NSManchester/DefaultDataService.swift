@@ -9,7 +9,7 @@
 import Foundation
 import enum Result.Result
 
-public enum DataError : Error {
+public enum DataError: Error {
     
     // TODO: Extend with all possible cases we wish to handle.
     
@@ -20,7 +20,7 @@ public enum DataError : Error {
 
 class DefaultDataService: DataService {
     
-    private let parsingService : ParsingService = ServicesFactory.parsingService()
+    private let parsingService: ParsingService = ServicesFactory.parsingService()
     
     func mainMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
         callback(Result.success([
@@ -29,7 +29,7 @@ class DefaultDataService: DataService {
             MenuOption(title: "where?", subtitle: "Madlab, 36-40 Edge Street, Manchester", segue: "where", cellIdentifier:"where", urlScheme: nil),
             MenuOption(title: "we're social!", subtitle: nil, segue: "social", cellIdentifier: "social", urlScheme: nil),
             MenuOption(title: "who?", subtitle: nil, segue: "who", cellIdentifier: "who", urlScheme: nil)
-        ]));
+            ]))
     }
     
     func socialMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
@@ -54,15 +54,14 @@ class DefaultDataService: DataService {
                        segue: nil,
                        cellIdentifier: "link",
                        urlScheme: Endpoints.twitterURLScheme.string),
-        ]));
+            ]))
     }
     
     func whenMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
         
         var whenMenuOptions = [MenuOption]()
         
-        for event in events()!
-        {
+        for event in events()! {
             let menuOption = MenuOption(title: dateAsString(event.date as Date), subtitle: "", segue: nil, cellIdentifier: "event", urlScheme: nil)
             whenMenuOptions.append(menuOption)
         }
@@ -76,8 +75,8 @@ class DefaultDataService: DataService {
         
         let event = events()![eventId]
         let talks = event.talks
-        for talk in talks
-        {
+        for talk in talks {
+            
             let speaker = speakers()?.filter { $0.speakerID == talk.speaker }.first
             
             var subtitle = ""
@@ -97,53 +96,62 @@ class DefaultDataService: DataService {
     }
     
     func todayViewOptions() -> MenuOption {
-        return MenuOption(title: nextEventString(), subtitle: "", segue: nil, cellIdentifier:"", urlScheme: nil);
+        return MenuOption(title: nextEventString(), subtitle: "", segue: nil, cellIdentifier:"", urlScheme: nil)
     }
     
     fileprivate func speakers() -> [Speaker]? {
         
-        let file = "nsmanchester.json"
+        let file = "NSManchester.json"
         
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
-            let path = dir.appendingPathComponent(file);
+        if let dir: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,
+                                                                   FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
+            let path = dir.appendingPathComponent(file)
             
-            if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
-            {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
                 return parsingService.parseSpeakers(data: data)
             }
         }
         
-        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
-        let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
+        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json")
         
-        return parsingService.parseSpeakers(data: data)
+        do {
+            let data: Data = try Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
+            return parsingService.parseSpeakers(data: data)
+        } catch _ {
+            return []
+        }
+        
     }
     
     fileprivate func events() -> [Event]? {
         
-        let file = "nsmanchester.json"
+        let file = "NSManchester.json"
         
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
-            let path = dir.appendingPathComponent(file);
+        if let dir: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,
+                                                                   FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
+            let path = dir.appendingPathComponent(file)
             
-            if let data = try? Data(contentsOf: URL(fileURLWithPath: path))
-            {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
                 let unsortedEvents = parsingService.parseEvents(data: data)
                 return eventsInDescendingOrder(unsortedEvents: unsortedEvents)
             }
         }
         
-        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json");
-        let data: Data = try! Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
-        let unsortedEvents =  parsingService.parseEvents(data: data)
+        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json")
         
-        return eventsInDescendingOrder(unsortedEvents: unsortedEvents)
+        do {
+            let data: Data = try Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
+            let unsortedEvents =  parsingService.parseEvents(data: data)
+            
+            return eventsInDescendingOrder(unsortedEvents: unsortedEvents)
+        } catch _ {
+            return []
+        }
     }
     
     func eventsInDescendingOrder(unsortedEvents: [Event]?) -> [Event]? {
         
-        if let unsortedEvents = unsortedEvents
-        {
+        if let unsortedEvents = unsortedEvents {
             let sortedEvents = unsortedEvents.sorted {
                 return $0 > $1
             }
@@ -158,8 +166,7 @@ class DefaultDataService: DataService {
         
         var nextEvent = "First Monday of each month"
         
-        if let events = events(), events.count > 0
-        {
+        if let events = events(), events.count > 0 {
             nextEvent = dateAsString(events[0].date as Date)
         }
         

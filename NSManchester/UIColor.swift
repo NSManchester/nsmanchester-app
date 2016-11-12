@@ -13,10 +13,8 @@ extension UIColor {
         return UIColor(red: 239.0/255.0, green: 173.0/255.0, blue: 150.0/255.0, alpha: 1.0)
     }
     
-    static func cell(for indexPath: IndexPath, offset: Int = 0) -> UIColor
-    {
-        switch (indexPath.row + 1 + offset) % 3
-        {
+    static func cell(for indexPath: IndexPath, offset: Int = 0) -> UIColor {
+        switch (indexPath.row + 1 + offset) % 3 {
         case 0: return UIColor.burntSiennaColor()
         case 1: return UIColor.hopbushColor()
         default: return UIColor.waxFlowerColor()

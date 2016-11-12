@@ -14,7 +14,7 @@ extension Notification.Name {
 
 class URLSessionNetworkingService: NetworkingService {
     
-    private let parsingService : ParsingService = ServicesFactory.parsingService()
+    private let parsingService: ParsingService = ServicesFactory.parsingService()
     
     func update(_ completion: ((Data) -> ())? = nil) {
         
@@ -25,19 +25,19 @@ class URLSessionNetworkingService: NetworkingService {
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: { [weak self] data, response, error in
             
-            if (error == nil) {
-                let statusCode = (response as! HTTPURLResponse).statusCode
-                print("Success: \(statusCode)")
-                
-                if let data = data, let _ = self?.parsingService.parseEvents(data: data)
-                {
+            if error == nil {
+              
+                if let data = data, let _ = self?.parsingService.parseEvents(data: data) {
                     
                     let text = String(data: data, encoding: String.Encoding.utf8)
                     
                     let file = "nsmanchester.json"
-                    if let dir : String = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+                    if let dir: String = NSSearchPathForDirectoriesInDomains(
+                        FileManager.SearchPathDirectory.documentDirectory,
+                        FileManager.SearchPathDomainMask.allDomainsMask,
+                        true).first {
                         
-                        let dirURL = URL(fileURLWithPath: dir).appendingPathComponent(file);
+                        let dirURL = URL(fileURLWithPath: dir).appendingPathComponent(file)
                         
                         do {
                             
@@ -48,17 +48,15 @@ class URLSessionNetworkingService: NetworkingService {
                                 successBlock(data)
                             }
                             
-                        }
-                        catch {
+                        } catch {
                         }
                     }
                 }
-            }
-            else {
+            } else {
                 // Failure
-                print("Failure:", error!.localizedDescription);
+                print("Failure:", error!.localizedDescription)
             }
-            });
+            })
         task.resume()
     }
 }

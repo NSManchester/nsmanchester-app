@@ -11,41 +11,42 @@ import MapKit
 import AddressBook
 import Contacts
 
-class WhereViewController : UIViewController {
+class WhereViewController: UIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     var locationManager = CLLocationManager()
-    
+
     // MARK: View lifecycle
-    
+
     override func viewDidLoad() {
-        
+
         // Centre the map on venue
         let initialLocation = CLLocation(latitude: 53.484277, longitude: -2.236451)
         centerMapOnLocation(initialLocation)
         let location = MapLocation(title: "Madlab", subtitle:"36 - 40 Edge Street, Manchester", coordinate: initialLocation.coordinate)
-        
-        
-        
+
         mapView.addAnnotation(location)
         mapView.selectAnnotation(location, animated: true)
         mapView.showsUserLocation = true
-        mapView.showsBuildings = true;
+        mapView.showsBuildings = true
         mapView.delegate = self
         checkLocationAuthorizationStatus()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(WhereViewController.reload(_:)), name: NSNotification.Name.FeedDataUpdated, object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(WhereViewController.reload(_:)),
+                                               name: NSNotification.Name.FeedDataUpdated,
+                                               object: nil)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
+
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
@@ -60,21 +61,23 @@ class WhereViewController : UIViewController {
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-  
-    class MapLocation : NSObject, MKAnnotation {
+    
+    class MapLocation: NSObject, MKAnnotation {
         let title: String?
-        let subtitle : String?
+        let subtitle: String?
         let coordinate: CLLocationCoordinate2D
-        
+
         init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
             self.title = title
-            self.coordinate = coordinate;
+            self.coordinate = coordinate
             self.subtitle = subtitle
             super.init()
         }
-        func pinTintColor() -> UIColor  {
+        
+        func pinTintColor() -> UIColor {
             return UIColor.red
         }
+
         func mapItem() -> MKMapItem {
             let addressDictionary = [String(CNPostalAddressStreetKey): subtitle!]
             let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
@@ -84,11 +87,12 @@ class WhereViewController : UIViewController {
             
             return mapItem
         }
+        
     }
     
     // Notifications
     
-    @objc func reload(_ notification: Notification){
+    @objc func reload(_ notification: Notification) {
         DispatchQueue.main.async { [unowned self] in
             self.mapView.reloadInputViews()
         }
