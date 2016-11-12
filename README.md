@@ -23,4 +23,4 @@ Special thanks go to [our contributors](https://github.com/NSManchester/nsmanche
 
 ## License
 
-NSManchester for iOS is released under the MIT license. See LICENSE for details.
+NSManchester for iOS is released under the MIT license. See [LICENSE](LICENSE.md) for details.
