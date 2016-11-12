@@ -14,3 +14,9 @@ Find out what's upcoming at [NSManchester](http://www.meetup.com/NSManchester/),
 This is the Git repository for the open-source NSManchester app for iOS [available on the App Store](https://itunes.apple.com/gb/app/nsmanchester/id1081057321?mt=8). Please send pull requests to contribute code and help crafting new features and awesome experiences.
 
 This application is as much a learning project for using Swift as it is an _awesome_ application, so feel free to use whichever new fancy APIs or syntax you want. We're all here to learn!
+
+## Credits
+
+NSManchester for iOS was originally created by [Ross Butler](https://github.com/rwbutler/) as a learning tool for a [Swift hack session](https://medium.com/@rwbutler/nsmanchester-swift-hack-session-15b145f11d4).
+
+Special thanks go to [our contributors](https://github.com/NSManchester/nsmanchester-app-ios/contributors).
