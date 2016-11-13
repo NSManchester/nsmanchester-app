@@ -51,6 +51,8 @@
 		1ED869991DD746F700E13783 /* Event+JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED869881DD715AA00E13783 /* Event+JSONDecodable.swift */; };
 		1ED8699A1DD746F900E13783 /* Speaker+JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED869841DD7140500E13783 /* Speaker+JSONDecodable.swift */; };
 		1ED8699B1DD746FC00E13783 /* Talk+JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED869861DD7144500E13783 /* Talk+JSONDecodable.swift */; };
+		1ED8699F1DD7DA6200E13783 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */; };
+		1ED869A01DD7DA6200E13783 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */; };
 		1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */; };
 		1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */; };
 		1EF137311C5D1F78004DD7AE /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF137301C5D1F78004DD7AE /* Contacts.framework */; };
@@ -128,6 +130,7 @@
 		1ED869841DD7140500E13783 /* Speaker+JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Speaker+JSONDecodable.swift"; sourceTree = "<group>"; };
 		1ED869861DD7144500E13783 /* Talk+JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Talk+JSONDecodable.swift"; sourceTree = "<group>"; };
 		1ED869881DD715AA00E13783 /* Event+JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+JSONDecodable.swift"; sourceTree = "<group>"; };
+		1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+CellSelectionColour.swift"; sourceTree = "<group>"; };
 		1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1EF137301C5D1F78004DD7AE /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
@@ -220,6 +223,7 @@
 			children = (
 				1E51D5A71C49880D00E6A951 /* Assets.xcassets */,
 				1E51D5AC1C49880D00E6A951 /* Info.plist */,
+				1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */,
 				1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */,
 				1E51D5A11C49880C00E6A951 /* Main.storyboard */,
 				1E51D5D61C499C8700E6A951 /* NSManchester.json */,
@@ -519,6 +523,7 @@
 			files = (
 				1E51D5D71C499C8700E6A951 /* NSManchester.json in Resources */,
 				1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */,
+				1ED8699F1DD7DA6200E13783 /* GoogleService-Info.plist in Resources */,
 				1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */,
 				1E51D5A31C49880C00E6A951 /* Main.storyboard in Resources */,
 			);
@@ -530,6 +535,7 @@
 			files = (
 				F04D34E81C8E1A2400DF3DD7 /* NSManchester.json in Resources */,
 				F04D34DC1C8E106600DF3DD7 /* MainInterface.storyboard in Resources */,
+				1ED869A01DD7DA6200E13783 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
