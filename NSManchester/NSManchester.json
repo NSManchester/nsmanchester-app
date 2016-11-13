@@ -42,6 +42,14 @@
                "talks": [{
                          "title": "NSManchester App and CodeMobile Update",
                          "speaker": "2"
+                         },
+                         {
+                         "title": "iOS at CBeebies",
+                         "speaker": "2"
+                         },
+                         {
+                         "title": "Discussion: CI Systems",
+                         "speaker": "2"
                          }]
                },
                {
