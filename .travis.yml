@@ -5,6 +5,7 @@ install:
   - ./install_swiftlint.sh
 script:
   - bundle install
+  - gem install travis --no-rdoc --no-ri
   - travis lint .travis.yml 
   - bundle exec danger
   - swiftlint
