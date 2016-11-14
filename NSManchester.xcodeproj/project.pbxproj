@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E09CD991DD67CE90033A59C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */; };
+		1E185F3C1DDA7F7E00E56F05 /* NSManchester1.1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E185F3B1DDA7F7E00E56F05 /* NSManchester1.1.json */; };
 		1E1C69451C5C045400A6337C /* WhenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69441C5C045400A6337C /* WhenViewController.swift */; };
 		1E1C69471C5C046200A6337C /* WhoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69461C5C046200A6337C /* WhoViewController.swift */; };
 		1E1C69491C5C048300A6337C /* WhereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1C69481C5C048300A6337C /* WhereViewController.swift */; };
@@ -97,6 +98,7 @@
 
 /* Begin PBXFileReference section */
 		0AC8B7CBF2B941B540FF525F /* Pods_NSManchester.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSManchester.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E185F3B1DDA7F7E00E56F05 /* NSManchester1.1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NSManchester1.1.json; sourceTree = "<group>"; };
 		1E1C69441C5C045400A6337C /* WhenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhenViewController.swift; sourceTree = "<group>"; };
 		1E1C69461C5C046200A6337C /* WhoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhoViewController.swift; sourceTree = "<group>"; };
 		1E1C69481C5C048300A6337C /* WhereViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhereViewController.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				1E51D5A11C49880C00E6A951 /* Main.storyboard */,
 				1E51D5D61C499C8700E6A951 /* NSManchester.json */,
 				1E51D5A41C49880D00E6A951 /* NSManchester.xcdatamodeld */,
+				1E185F3B1DDA7F7E00E56F05 /* NSManchester1.1.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				1ED8699F1DD7DA6200E13783 /* GoogleService-Info.plist in Resources */,
 				1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */,
 				1E51D5A31C49880C00E6A951 /* Main.storyboard in Resources */,
+				1E185F3C1DDA7F7E00E56F05 /* NSManchester1.1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
