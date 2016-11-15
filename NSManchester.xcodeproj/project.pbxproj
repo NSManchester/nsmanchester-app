@@ -437,13 +437,13 @@
 			buildConfigurationList = 1E51D5C51C49880D00E6A951 /* Build configuration list for PBXNativeTarget "NSManchester" */;
 			buildPhases = (
 				28A4C41A02624FF6AFDD0587 /* 📦 Check Pods Manifest.lock */,
+				1ED8699D1DD7B06F00E13783 /* SwiftLint */,
 				1E51D5961C49880C00E6A951 /* Sources */,
 				1E51D5971C49880C00E6A951 /* Frameworks */,
 				1E51D5981C49880C00E6A951 /* Resources */,
 				F04D34E41C8E106600DF3DD7 /* Embed App Extensions */,
 				DA631206354F3850AF3CF913 /* 📦 Embed Pods Frameworks */,
 				BFB1CFB70E4D2C4E45F158C8 /* 📦 Copy Pods Resources */,
-				1ED8699D1DD7B06F00E13783 /* SwiftLint */,
 			);
 			buildRules = (
 			);
