@@ -57,11 +57,12 @@
                "talks": [{
                          "title": "CocoaLove 2016 Conference Roundup",
                          "speaker": "6",
-                         "slides": "https://dl.dropboxusercontent.com/u/8675353/CocoaLove.pdf"
+                         "slides": "https://github.com/NSManchester/talks/blob/master/2016/10/matthewspear_cocoalove2016.pdf"
                          },
                          {
                          "title": "Webview Audio",
-                         "speaker": "2"
+                         "speaker": "2",
+                         "slides": "https://github.com/NSManchester/talks/blob/master/2016/10/rossbutler_webviewaudio.pdf"
                          }]
                },
                {
@@ -100,22 +101,26 @@
                "date": "07/03/16",
                "talks": [{
                          "title": "Swift Hack: NSManchester iOS App",
-                         "speaker": "2"
+                         "speaker": "2",
+                         "slides": "https://github.com/NSManchester/talks/blob/master/2016/03/rossbutler_swifthack.pdf"
                          }]
                },
                {
                "date": "01/02/16",
                "talks": [{
                          "title": "Target-Action and the Responder Chain on iOS",
-                         "speaker": "0"
+                         "speaker": "0",
+                         "slides": "https://speakerdeck.com/sammeadley/target-action-and-the-responder-chain-on-ios"
                          },
                          {
                          "title": "Hacking XCTest for Fun and Profit",
-                         "speaker": "1"
+                         "speaker": "1",
+                         "slides": "http://initwithstyle.net/2015/11/tdd-in-swift-playgrounds/"
                          },
                          {
                          "title": "Functional Reactive Programming in RxSwift",
-                         "speaker": "3"
+                         "speaker": "3",
+                         "slides": "https://github.com/tailec/FRP-with-RxSwift"
                          }]
                }
                ]
