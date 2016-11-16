@@ -12,10 +12,12 @@ struct Talk {
     
     let title: String
     let speaker: Int
+    let slidesURL: URL?
     
-    init(title: String, speaker: Int) {
+    init(title: String, speaker: Int, slidesURL: URL) {
         self.title = title
         self.speaker = speaker
+        self.slidesURL = slidesURL
     }
     
 }

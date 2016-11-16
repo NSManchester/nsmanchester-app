@@ -26,7 +26,7 @@ enum Endpoints {
         
         switch self {
         case .events:
-            return URL(string: "https://raw.githubusercontent.com/NSManchester/nsmanchester-app-ios/master/NSManchester/NSManchester.json")!
+            return URL(string: "https://raw.githubusercontent.com/NSManchester/nsmanchester-app-ios/master/NSManchester/NSManchester1.1.json")!
         case .facebook:
             return URL(string: "https://facebook.com/nsmanchester")!
         case .facebookURLScheme:

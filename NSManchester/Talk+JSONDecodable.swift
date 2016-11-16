@@ -14,6 +14,7 @@ extension Talk : JSONDecodable {
     init(json: JSON) {
         title =  json["title"].stringValue
         speaker = json["speaker"].intValue
+        slidesURL = URL(string: json["slides"].stringValue)
     }
     
 }

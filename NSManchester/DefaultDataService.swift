@@ -88,7 +88,7 @@ class DefaultDataService: DataService {
                                         subtitle: subtitle,
                                         segue: nil,
                                         cellIdentifier: "event",
-                                        urlScheme: nil)
+                                        urlScheme: talk.slidesURL?.absoluteString)
             
             eventMenuOptions.append(menuOption)
         }
@@ -101,7 +101,7 @@ class DefaultDataService: DataService {
     
     fileprivate func speakers() -> [Speaker]? {
         
-        let file = "NSManchester.json"
+        let file = "NSManchester1.1.json"
         
         if let dir: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,
                                                                    FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
@@ -112,7 +112,7 @@ class DefaultDataService: DataService {
             }
         }
         
-        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json")
+        let fileName = Bundle.main.path(forResource: "NSManchester1.1", ofType: "json")
         
         do {
             let data: Data = try Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
@@ -125,7 +125,7 @@ class DefaultDataService: DataService {
     
     fileprivate func events() -> [Event]? {
         
-        let file = "NSManchester.json"
+        let file = "NSManchester1.1.json"
         
         if let dir: NSString = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,
                                                                    FileManager.SearchPathDomainMask.allDomainsMask, true).first as NSString? {
@@ -137,7 +137,7 @@ class DefaultDataService: DataService {
             }
         }
         
-        let fileName = Bundle.main.path(forResource: "NSManchester", ofType: "json")
+        let fileName = Bundle.main.path(forResource: "NSManchester1.1", ofType: "json")
         
         do {
             let data: Data = try Data(contentsOf: URL(fileURLWithPath: fileName!), options: NSData.ReadingOptions(rawValue: 0))
