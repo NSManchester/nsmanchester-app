@@ -64,6 +64,17 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
             })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        if let tableView = tableView,
+            let selectedIndex = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: selectedIndex, animated: true)
+        }
+        
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
