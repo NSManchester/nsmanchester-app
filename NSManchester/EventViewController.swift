@@ -15,7 +15,7 @@ struct EventCell {
     static let AuthorLabelId = 2
 }
 
-class EventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventViewController: UIViewController {
     
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -77,49 +77,6 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cellIdentifier = menuOptions![(indexPath as NSIndexPath).row].cellIdentifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        
-        cell.contentView.backgroundColor = UIColor.cell(for: indexPath)
-        
-        let talkLabel = cell.viewWithTag(EventCell.TalkLabelId) as? UILabel
-        let authorLabel = cell.viewWithTag(EventCell.AuthorLabelId) as? UILabel
-        
-        talkLabel?.text = menuOptions![(indexPath as NSIndexPath).row].title
-        
-        if let subtitle = menuOptions![(indexPath as NSIndexPath).row].subtitle {
-            authorLabel?.text = subtitle
-        }
-        
-        let selectedBackgroundView = UIView(frame: cell.frame)
-        selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)
-        cell.selectedBackgroundView = selectedBackgroundView
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let urlStr = menuOptions?[indexPath.row].urlScheme,
-            let url = URL(string: urlStr) {
-            let safariViewController = SFSafariViewController(url: url)
-            self.present(safariViewController, animated: true, completion: nil)
-        } else {
-            SVProgressHUD.showError(withStatus: "There are no available slides to accompany this talk.")
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions!.count
     }
     
     // Notifications

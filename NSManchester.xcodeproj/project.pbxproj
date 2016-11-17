@@ -38,6 +38,8 @@
 		1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */; };
 		1E51D5D31C49889800E6A951 /* URLSessionNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5D21C49889800E6A951 /* URLSessionNetworkingService.swift */; };
 		1E51D5D71C499C8700E6A951 /* NSManchester.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5D61C499C8700E6A951 /* NSManchester.json */; };
+		1E55FB001DDDB6BD00F2CE18 /* EventViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55FAFF1DDDB6BD00F2CE18 /* EventViewController+UITableViewDataSource.swift */; };
+		1E55FB021DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E55FB011DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift */; };
 		1EC5A1D51DBAD57D00FA1DF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17101DBAD297009CCFE8 /* DataService.swift */; };
 		1EC5A1D71DBC203800FA1DF8 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */; };
 		1EC5A1DA1DBC214800FA1DF8 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */; };
@@ -124,6 +126,8 @@
 		1E51D5D21C49889800E6A951 /* URLSessionNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkingService.swift; sourceTree = "<group>"; };
 		1E51D5D41C49998500E6A951 /* JSONSerializationParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializationParsingService.swift; sourceTree = "<group>"; };
 		1E51D5D61C499C8700E6A951 /* NSManchester.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NSManchester.json; sourceTree = "<group>"; };
+		1E55FAFF1DDDB6BD00F2CE18 /* EventViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		1E55FB011DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		1EC5A1DB1DBC217100FA1DF8 /* FilePersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePersistenceService.swift; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 			isa = PBXGroup;
 			children = (
 				1EF1373C1C5D79A3004DD7AE /* EventViewController.swift */,
+				1E55FAFF1DDDB6BD00F2CE18 /* EventViewController+UITableViewDataSource.swift */,
+				1E55FB011DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -661,6 +667,7 @@
 				1E2D17001DBAC8EB009CCFE8 /* Speaker.swift in Sources */,
 				1E2D17041DBAC957009CCFE8 /* ParsingService.swift in Sources */,
 				1E51D5D31C49889800E6A951 /* URLSessionNetworkingService.swift in Sources */,
+				1E55FB001DDDB6BD00F2CE18 /* EventViewController+UITableViewDataSource.swift in Sources */,
 				1E2D170A1DBACD60009CCFE8 /* ServicesFactory.swift in Sources */,
 				1ED869851DD7140500E13783 /* Speaker+JSONDecodable.swift in Sources */,
 				1E2D16FE1DBAC8E0009CCFE8 /* Talk.swift in Sources */,
@@ -672,6 +679,7 @@
 				1EC5A1DC1DBC217100FA1DF8 /* FilePersistenceService.swift in Sources */,
 				1ED869891DD715AA00E13783 /* Event+JSONDecodable.swift in Sources */,
 				1ED869801DD70C3F00E13783 /* JSONDecodable.swift in Sources */,
+				1E55FB021DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift in Sources */,
 				539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */,
 				1EF1373D1C5D79A3004DD7AE /* EventViewController.swift in Sources */,
 				1E51D5A61C49880D00E6A951 /* NSManchester.xcdatamodeld in Sources */,
