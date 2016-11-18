@@ -23,6 +23,7 @@ class DefaultDataService: DataService {
     private let parsingService: ParsingService = ServicesFactory.parsingService()
     
     func mainMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
+        
         callback(Result.success([
             MenuOption(title: "NSManchester", subtitle: "iOS developer group", segue: nil, cellIdentifier: "nsmanchester", urlScheme: nil),
             MenuOption(title: "when?", subtitle: nextEventString(), segue: "when", cellIdentifier:"when", urlScheme: nil),
@@ -30,9 +31,11 @@ class DefaultDataService: DataService {
             MenuOption(title: "we're social!", subtitle: nil, segue: "social", cellIdentifier: "social", urlScheme: nil),
             MenuOption(title: "who?", subtitle: nil, segue: "who", cellIdentifier: "who", urlScheme: nil)
             ]))
+        
     }
     
     func socialMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
+        
         callback(Result.success([
             MenuOption(title: "website",
                        subtitle: Endpoints.website.string,
@@ -55,6 +58,7 @@ class DefaultDataService: DataService {
                        cellIdentifier: "link",
                        urlScheme: Endpoints.twitterURLScheme.string),
             ]))
+        
     }
     
     func whenMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
@@ -62,11 +66,16 @@ class DefaultDataService: DataService {
         var whenMenuOptions = [MenuOption]()
         
         for event in events()! {
-            let menuOption = MenuOption(title: dateAsString(event.date as Date), subtitle: "", segue: nil, cellIdentifier: "event", urlScheme: nil)
+            let menuOption = MenuOption(title: event.date.ordinalString(),
+                                        subtitle: "",
+                                        segue: nil,
+                                        cellIdentifier: "event",
+                                        urlScheme: nil)
             whenMenuOptions.append(menuOption)
         }
         
         return callback(Result.success(whenMenuOptions))
+        
     }
     
     func eventMenuOptions(_ eventId: Int, callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
@@ -92,7 +101,9 @@ class DefaultDataService: DataService {
             
             eventMenuOptions.append(menuOption)
         }
+        
         return callback(Result.success(eventMenuOptions))
+        
     }
     
     func todayViewOptions() -> MenuOption {
@@ -167,27 +178,10 @@ class DefaultDataService: DataService {
         var nextEvent = "First Monday of each month"
         
         if let events = events(), events.count > 0 {
-            nextEvent = dateAsString(events[0].date as Date)
+            nextEvent = events[0].date.ordinalString()
         }
         
         return nextEvent
-    }
-    
-    fileprivate func dateAsString(_ date: Date) -> String {
-        
-        // Format date string
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMMM d"
-        dateFormatter.locale = Locale(identifier: "en_GB")
-        var dateStr = dateFormatter.string(from: date)
-        
-        // Append ordinal suffix
-        let calendar = (Calendar(identifier: Calendar.Identifier.gregorian))
-        let day = (calendar as NSCalendar).component(.day, from: date)
-        let suffixesStr = "|st|nd|rd|th|th|th|th|th|th|th|th|th|th|th|th|th|th|th|th|th|st|nd|rd|th|th|th|th|th|th|th|st"
-        let suffixes = suffixesStr.components(separatedBy: "|")
-        dateStr.append(suffixes[day])
-        return dateStr
     }
     
 }

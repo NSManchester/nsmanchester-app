@@ -28,4 +28,10 @@ struct ServicesFactory {
         
     }
     
+    static func persistenceService() -> PersistenceService {
+        
+        return FilePersistenceService()
+        
+    }
+    
 }

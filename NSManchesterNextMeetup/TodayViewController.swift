@@ -9,14 +9,14 @@
 import UIKit
 import NotificationCenter
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController {
 
     // Outlets
     @IBOutlet weak var dateField: UILabel!
 
     // Services
-    private let dataService: DataService = ServicesFactory.dataService()
-    private let networkingService: NetworkingService = ServicesFactory.networkingService()
+    let dataService: DataService = ServicesFactory.dataService()
+    let networkingService: NetworkingService = ServicesFactory.networkingService()
 
     override func viewDidLoad() {
 
@@ -26,36 +26,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
         dateField.text = dataService.todayViewOptions().title
 
-        networkingService.update { [weak self] (data) -> () in
+        networkingService.update { [weak self] data in
             self?.dateField.text = self?.dataService.todayViewOptions().title
         }
 
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     @IBAction func goToEvent(_ sender: AnyObject) {
+        
         if let url = URL(string: "nsmanchester://") {
             extensionContext?.open(url, completionHandler: nil)
         }
-    }
-    
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         
-        networkingService.update { [weak self] (data) -> () in
-            
-            self?.dateField.text = self?.dataService.todayViewOptions().title
-            completionHandler(NCUpdateResult.newData)
-
-        }
-
-    }
-    
-    func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets)
-        -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     }
 
 }

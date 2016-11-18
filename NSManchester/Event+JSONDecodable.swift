@@ -21,6 +21,7 @@ extension Event: JSONDecodable {
         guard let parsedDate = dateFormatter.date(from: json["date"].stringValue) else {
             return nil
         }
+        
         date = parsedDate
         
         talks = json["talks"].arrayValue.map {
