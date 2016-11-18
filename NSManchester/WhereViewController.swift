@@ -8,13 +8,13 @@
 
 import UIKit
 import MapKit
-import AddressBook
-import Contacts
 
 class WhereViewController: UIViewController {
     
+    // Outlets
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+    
     var locationManager = CLLocationManager()
 
     // MARK: View lifecycle
@@ -24,10 +24,13 @@ class WhereViewController: UIViewController {
         // Centre the map on venue
         let initialLocation = CLLocation(latitude: 53.484277, longitude: -2.236451)
         centerMapOnLocation(initialLocation)
-        let location = MapLocation(title: "Madlab", subtitle:"36 - 40 Edge Street, Manchester", coordinate: initialLocation.coordinate)
-
+        
+        let location = MapLocation(title: "Madlab",
+                                   subtitle:"36 - 40 Edge Street, Manchester",
+                                   coordinate: initialLocation.coordinate)
         mapView.addAnnotation(location)
         mapView.selectAnnotation(location, animated: true)
+        
         mapView.showsUserLocation = true
         mapView.showsBuildings = true
         mapView.delegate = self
@@ -60,34 +63,6 @@ class WhereViewController: UIViewController {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    class MapLocation: NSObject, MKAnnotation {
-        let title: String?
-        let subtitle: String?
-        let coordinate: CLLocationCoordinate2D
-
-        init(title: String, subtitle: String, coordinate: CLLocationCoordinate2D) {
-            self.title = title
-            self.coordinate = coordinate
-            self.subtitle = subtitle
-            super.init()
-        }
-        
-        func pinTintColor() -> UIColor {
-            return UIColor.red
-        }
-
-        func mapItem() -> MKMapItem {
-            let addressDictionary = [String(CNPostalAddressStreetKey): subtitle!]
-            let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
-            
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = title
-            
-            return mapItem
-        }
-        
     }
     
     // Notifications

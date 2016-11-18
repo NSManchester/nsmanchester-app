@@ -44,6 +44,9 @@
 		1EBCB1701DDFA0BF006FC445 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */; };
 		1EBCB1711DDFA0CA006FC445 /* FilePersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1DB1DBC217100FA1DF8 /* FilePersistenceService.swift */; };
 		1EBCB1741DDFA1D7006FC445 /* TodayViewController+NCWidgetProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCB1731DDFA1D7006FC445 /* TodayViewController+NCWidgetProviding.swift */; };
+		1EBCB1771DDFA404006FC445 /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCB1761DDFA404006FC445 /* MapLocation.swift */; };
+		1EBCB1791DDFA5E9006FC445 /* WhenViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCB1781DDFA5E9006FC445 /* WhenViewController+UITableViewDelegate.swift */; };
+		1EBCB17B1DDFA61D006FC445 /* WhenViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBCB17A1DDFA61D006FC445 /* WhenViewController+UITableViewDataSource.swift */; };
 		1EC5A1D51DBAD57D00FA1DF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17101DBAD297009CCFE8 /* DataService.swift */; };
 		1EC5A1D71DBC203800FA1DF8 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */; };
 		1EC5A1DA1DBC214800FA1DF8 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */; };
@@ -133,6 +136,9 @@
 		1E55FB011DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		1EBCB16D1DDF9F16006FC445 /* Date+Ordinals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ordinals.swift"; sourceTree = "<group>"; };
 		1EBCB1731DDFA1D7006FC445 /* TodayViewController+NCWidgetProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TodayViewController+NCWidgetProviding.swift"; sourceTree = "<group>"; };
+		1EBCB1761DDFA404006FC445 /* MapLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
+		1EBCB1781DDFA5E9006FC445 /* WhenViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WhenViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		1EBCB17A1DDFA61D006FC445 /* WhenViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WhenViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		1EC5A1D91DBC214800FA1DF8 /* PersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		1EC5A1DB1DBC217100FA1DF8 /* FilePersistenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilePersistenceService.swift; sourceTree = "<group>"; };
@@ -189,8 +195,9 @@
 		1E1C69421C5C02ED00A6337C /* When */ = {
 			isa = PBXGroup;
 			children = (
-				1EF1373B1C5D798E004DD7AE /* Event */,
 				1E1C69441C5C045400A6337C /* WhenViewController.swift */,
+				1EBCB1781DDFA5E9006FC445 /* WhenViewController+UITableViewDelegate.swift */,
+				1EBCB17A1DDFA61D006FC445 /* WhenViewController+UITableViewDataSource.swift */,
 			);
 			name = When;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 			children = (
 				1E1C69481C5C048300A6337C /* WhereViewController.swift */,
 				1EF137321C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift */,
+				1EBCB1761DDFA404006FC445 /* MapLocation.swift */,
 			);
 			name = Where;
 			sourceTree = "<group>";
@@ -258,6 +266,7 @@
 		1E1E8FAE1C5AC1B900FA2DBC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1EF1373B1C5D798E004DD7AE /* Event */,
 				1EF137361C5D3BE3004DD7AE /* Extensions */,
 				1E1E8FAF1C5AC1BD00FA2DBC /* Menu */,
 				1E1C69531C5CE36700A6337C /* Social */,
@@ -688,6 +697,7 @@
 				1E2D17131DBAD2BB009CCFE8 /* NetworkingService.swift in Sources */,
 				1E2D17111DBAD297009CCFE8 /* DataService.swift in Sources */,
 				1E1C69551C5CE37900A6337C /* SocialViewController.swift in Sources */,
+				1EBCB1791DDFA5E9006FC445 /* WhenViewController+UITableViewDelegate.swift in Sources */,
 				1ED869871DD7144500E13783 /* Talk+JSONDecodable.swift in Sources */,
 				1EBCB16E1DDF9F16006FC445 /* Date+Ordinals.swift in Sources */,
 				1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */,
@@ -705,9 +715,11 @@
 				1E2D170E1DBAD25E009CCFE8 /* MenuOption.swift in Sources */,
 				1ED869821DD70F6F00E13783 /* SwiftyJSONParsingService.swift in Sources */,
 				1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */,
+				1EBCB1771DDFA404006FC445 /* MapLocation.swift in Sources */,
 				FBE73DDD1C8E208800DECC4D /* CFBundle.swift in Sources */,
 				1E1C69491C5C048300A6337C /* WhereViewController.swift in Sources */,
 				1EC5A1D71DBC203800FA1DF8 /* Endpoints.swift in Sources */,
+				1EBCB17B1DDFA61D006FC445 /* WhenViewController+UITableViewDataSource.swift in Sources */,
 				1E1C69451C5C045400A6337C /* WhenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
