@@ -23,6 +23,10 @@ A consistent coding style is enforced by use of [SwiftLint](https://github.com/r
 
 NSManchester for iOS is released under the MIT license. See [LICENSE](LICENSE.md) for details.
 
+## Contributions
+
+Our preferred strategy for accepting contributions is to 'rebase and merge' over squashing or generating 'noisy' merge commits.
+
 ## Credits
 
 NSManchester for iOS was originally created by [Ross Butler](https://github.com/rwbutler/) as a learning tool for a [Swift hack session](https://medium.com/@rwbutler/nsmanchester-swift-hack-session-15b145f11d4).
