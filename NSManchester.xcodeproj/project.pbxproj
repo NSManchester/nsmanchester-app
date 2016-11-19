@@ -494,7 +494,6 @@
 				F04D34D01C8E106600DF3DD7 /* Sources */,
 				F04D34D11C8E106600DF3DD7 /* Frameworks */,
 				F04D34D21C8E106600DF3DD7 /* Resources */,
-				D7855CE00B98B022CD20E415 /* 📦 Embed Pods Frameworks */,
 				9E58B32EB7A00F8528F1E14B /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
@@ -518,6 +517,7 @@
 				TargetAttributes = {
 					1E51D5991C49880C00E6A951 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = R6FMX6D3C2;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -527,6 +527,7 @@
 					};
 					F04D34D31C8E106600DF3DD7 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = R6FMX6D3C2;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -636,21 +637,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSManchester/Pods-NSManchester-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7855CE00B98B022CD20E415 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSManchesterNextMeetup/Pods-NSManchesterNextMeetup-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA631206354F3850AF3CF913 /* 📦 Embed Pods Frameworks */ = {
@@ -888,14 +874,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = R6FMX6D3C2;
 				INFOPLIST_FILE = NSManchester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "b4e422e0-7d6d-4ca6-93e2-fb9641e1590c";
+				PROVISIONING_PROFILE_SPECIFIER = "NSManchester Development";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -926,12 +914,15 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = R6FMX6D3C2;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester.NSManchesterNextMeetup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "15f85574-4304-43fd-b119-a2a7dcaf9b43";
+				PROVISIONING_PROFILE_SPECIFIER = "NSManchester Next Meetup Development";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -944,6 +935,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = R6FMX6D3C2;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
