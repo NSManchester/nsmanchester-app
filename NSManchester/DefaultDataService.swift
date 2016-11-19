@@ -25,7 +25,7 @@ class DefaultDataService: DataService {
     func mainMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ()) {
         
         callback(Result.success([
-            MenuOption(title: "NSManchester", subtitle: "iOS developer group", segue: nil, cellIdentifier: "nsmanchester", urlScheme: nil),
+            MenuOption(title: "NSManchester", subtitle: "iOS Developer Group", segue: nil, cellIdentifier: "nsmanchester", urlScheme: nil),
             MenuOption(title: "when?", subtitle: nextEventString(), segue: "when", cellIdentifier:"when", urlScheme: nil),
             MenuOption(title: "where?", subtitle: "Madlab, 36-40 Edge Street, Manchester", segue: "where", cellIdentifier:"where", urlScheme: nil),
             MenuOption(title: "we're social!", subtitle: nil, segue: "social", cellIdentifier: "social", urlScheme: nil),
