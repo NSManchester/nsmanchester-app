@@ -64,6 +64,8 @@
 		1ED8699F1DD7DA6200E13783 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */; };
 		1ED869A01DD7DA6200E13783 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */; };
 		1EE081FC1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE081FB1C8E4A50000B455D /* UITableViewCell+CellSelectionColour.swift */; };
+		1EEE9A5B1DE0A255009BCCAC /* NSManchester1.1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E185F3B1DDA7F7E00E56F05 /* NSManchester1.1.json */; };
+		1EEE9A5C1DE0A298009BCCAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A71C49880D00E6A951 /* Assets.xcassets */; };
 		1EF1372F1C5D1B1A004DD7AE /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF1372E1C5D1B1A004DD7AE /* AddressBook.framework */; };
 		1EF137311C5D1F78004DD7AE /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF137301C5D1F78004DD7AE /* Contacts.framework */; };
 		1EF137331C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF137321C5D28D2004DD7AE /* WhereViewController+MKMapViewDelegate.swift */; };
@@ -516,7 +518,7 @@
 				TargetAttributes = {
 					1E51D5991C49880C00E6A951 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = R6FMX6D3C2;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -525,7 +527,7 @@
 					};
 					F04D34D31C8E106600DF3DD7 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = R6FMX6D3C2;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -566,6 +568,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EEE9A5C1DE0A298009BCCAC /* Assets.xcassets in Resources */,
+				1EEE9A5B1DE0A255009BCCAC /* NSManchester1.1.json in Resources */,
 				F04D34E81C8E1A2400DF3DD7 /* NSManchester.json in Resources */,
 				F04D34DC1C8E106600DF3DD7 /* MainInterface.storyboard in Resources */,
 				1ED869A01DD7DA6200E13783 /* GoogleService-Info.plist in Resources */,
@@ -884,7 +888,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = R6FMX6D3C2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NSManchester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -910,7 +914,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "918513b3-014f-4889-aadb-66384fbdd58f";
+				PROVISIONING_PROFILE_SPECIFIER = "NSManchester App Store";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -921,7 +926,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = R6FMX6D3C2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -937,13 +942,15 @@
 			baseConfigurationReference = 27180C7650B44F2ABF55EAA2 /* Pods-NSManchesterNextMeetup.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = R6FMX6D3C2;
 				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rwbutler.NSManchester.NSManchesterNextMeetup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1815bbb6-e664-410e-b298-e39f864c38c9";
+				PROVISIONING_PROFILE_SPECIFIER = "NSManchester Next Meetup App Store";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
