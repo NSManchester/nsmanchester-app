@@ -73,7 +73,8 @@
                "date": "26/09/16",
                "talks": [{
                          "title": "Danger CI",
-                         "speaker": "5"
+                         "speaker": "5",
+                         "slides": "https://speakerdeck.com/orta/danger-in-15m"
                          }]
                },
                {
