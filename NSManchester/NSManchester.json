@@ -27,9 +27,59 @@
         "6": {
             "forename": "Matthew",
             "surname": "Spear"
+        },
+        "7": {
+            "forename": "Chris",
+            "surname": "Wilson"
+        },
+        "8": {
+            "forename": "Adam",
+            "surname": "Rush"
+        },
+        "9": {
+            "forename": "Mike",
+            "surname": "Irving"
+        },
+        "10": {
+            "forename": "Luke",
+            "surname": "Stringer"
         }
     },
     "events": [
+              {
+              "date": "06/03/16",
+               "talks": [{
+                         "title": "TBA",
+                         "speaker": "2"
+                         }]
+               },
+               {
+               "date": "06/02/16",
+               "talks": [
+                         {
+                         "title": "The Windows Bridge for iOS",
+                         "speaker": "9"
+                         },
+                         {
+                         "title": "A Swift Journey",
+                         "speaker": "10"
+                         }]
+               },
+               {
+               "date": "23/01/16",
+               "talks": [{
+                         "title": "NSManchester 2017 Update",
+                         "speaker": "2"
+                         },
+                         {
+                         "title": "TBA",
+                         "speaker": "7"
+                         },
+                         {
+                         "title": "Continuous Delivery",
+                         "speaker": "8"
+                         }]
+               },
                {
                "date": "05/12/16",
                "talks": [{
