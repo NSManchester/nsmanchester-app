@@ -47,14 +47,14 @@
     },
     "events": [
               {
-              "date": "06/03/16",
+              "date": "06/03/17",
                "talks": [{
                          "title": "TBA",
                          "speaker": "2"
                          }]
                },
                {
-               "date": "06/02/16",
+               "date": "06/02/17",
                "talks": [
                          {
                          "title": "The Windows Bridge for iOS",
@@ -66,7 +66,7 @@
                          }]
                },
                {
-               "date": "23/01/16",
+               "date": "23/01/17",
                "talks": [{
                          "title": "NSManchester 2017 Update",
                          "speaker": "2"
