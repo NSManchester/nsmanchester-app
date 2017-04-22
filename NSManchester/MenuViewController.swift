@@ -18,7 +18,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // Services
     private let dataService: DataService = ServicesFactory.dataService()
     
-    var menuOptions: Array<MenuOption>?
+    var menuOptions: [MenuOption]?
     
     // MARK: View lifecycle
     

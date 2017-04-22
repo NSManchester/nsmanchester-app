@@ -11,6 +11,11 @@ import SwiftyJSON
 
 extension Event: JSONDecodable {
     
+    private enum EventJSONKeys {
+        static let date = "date"
+        static let talks = "talks"
+    }
+    
     init?(json: JSON) {
         
         let dateFormatter = DateFormatter()
@@ -18,16 +23,32 @@ extension Event: JSONDecodable {
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         
-        guard let parsedDate = dateFormatter.date(from: json["date"].stringValue) else {
+        guard let parsedDate = dateFormatter.date(from: json[EventJSONKeys.date].stringValue) else {
             return nil
         }
         
         date = parsedDate
         
-        talks = json["talks"].arrayValue.map {
+        talks = json[EventJSONKeys.talks].arrayValue.flatMap {
             Talk(json: $0)
         }
-        
     }
     
+    init?(json: JSON, speakers: [Speaker]? = nil) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_GB")
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        guard let parsedDate = dateFormatter.date(from: json[EventJSONKeys.date].stringValue) else {
+            return nil
+        }
+        
+        date = parsedDate
+        
+        talks = json[EventJSONKeys.talks].arrayValue.flatMap {
+            Talk(json: $0, speakers: speakers)
+        }
+    }
 }

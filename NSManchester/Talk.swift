@@ -11,10 +11,10 @@ import Foundation
 struct Talk {
     
     let title: String
-    let speaker: Int
+    let speaker: Speaker
     let slidesURL: URL?
     
-    init(title: String, speaker: Int, slidesURL: URL) {
+    init?(title: String, speaker: Speaker, slidesURL: URL) {
         self.title = title
         self.speaker = speaker
         self.slidesURL = slidesURL

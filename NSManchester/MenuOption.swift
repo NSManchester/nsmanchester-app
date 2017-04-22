@@ -9,11 +9,9 @@
 import Foundation
 
 struct MenuOption {
-    
     let title: String
     let subtitle: String?
     let segue: String?
     let cellIdentifier: String
     let urlScheme: String?
-    
 }

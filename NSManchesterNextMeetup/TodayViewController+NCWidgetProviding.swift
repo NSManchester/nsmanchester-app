@@ -13,11 +13,12 @@ extension TodayViewController: NCWidgetProviding {
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         
-        networkingService.update { [weak self] data in
-            self?.dateField.text = self?.dataService.todayViewOptions().title
+        // Update text field with date of next meetup
+        dateField.text = "First Monday of each month"
+        dataService.nextEventString(callback: { [weak self] title in
+            self?.dateField.text = title
             completionHandler(NCUpdateResult.newData)
-        }
-        
+        })
     }
     
     func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets)

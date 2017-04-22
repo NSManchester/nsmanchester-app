@@ -20,7 +20,7 @@ extension WhenViewController: UITableViewDataSource {
         let cellIdentifier = menuOptions[(indexPath as NSIndexPath).row].cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.contentView.backgroundColor = UIColor.cell(for: indexPath)
+        cell.contentView.backgroundColor = UIColor.cell(for: indexPath).rawValue
         cell.textLabel?.text = menuOptions[(indexPath as NSIndexPath).row].title
         cell.textLabel?.backgroundColor = UIColor.clear
         

@@ -9,16 +9,12 @@
 import Foundation
 import enum Result.Result
 
+typealias MenuOptionsResult = Result<[MenuOption], DataError>
+
 protocol DataService {
-    
-    func mainMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ())
-    
-    func socialMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ())
-    
-    func whenMenuOptions(callback: @escaping (Result<[MenuOption], DataError>) -> ())
-    
-    func eventMenuOptions(_ eventId: Int, callback: @escaping (Result<[MenuOption], DataError>) -> ())
-    
-    func todayViewOptions() -> MenuOption
-    
+    func mainMenuOptions(callback: @escaping (MenuOptionsResult) -> Void)
+    func socialMenuOptions(callback: @escaping (MenuOptionsResult) -> Void)
+    func whenMenuOptions(callback: @escaping (MenuOptionsResult) -> Void)
+    func eventMenuOptions(_ eventId: Int, callback: @escaping (MenuOptionsResult) -> Void)
+    func nextEventString(callback: @escaping (String) -> Void)
 }

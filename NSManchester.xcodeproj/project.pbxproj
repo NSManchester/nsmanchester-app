@@ -31,7 +31,6 @@
 		1E2D17141DBAD366009CCFE8 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2D17121DBAD2BB009CCFE8 /* NetworkingService.swift */; };
 		1E51D59E1C49880C00E6A951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D59D1C49880C00E6A951 /* AppDelegate.swift */; };
 		1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D59F1C49880C00E6A951 /* MenuViewController.swift */; };
-		1E51D5A31C49880C00E6A951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A11C49880C00E6A951 /* Main.storyboard */; };
 		1E51D5A61C49880D00E6A951 /* NSManchester.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E51D5A41C49880D00E6A951 /* NSManchester.xcdatamodeld */; };
 		1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A71C49880D00E6A951 /* Assets.xcassets */; };
 		1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */; };
@@ -73,6 +72,10 @@
 		539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B32761C8E1A5B002681A0 /* UIColor.swift */; };
 		B556372DCCEC2D52F6E599FA /* Pods_NSManchester.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AC8B7CBF2B941B540FF525F /* Pods_NSManchester.framework */; };
 		B92C4C371CA57A8A5D8E7291 /* Pods_NSManchesterNextMeetup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9FEC2C34F545B5609F48F1 /* Pods_NSManchesterNextMeetup.framework */; };
+		E4F6227F1EAB6F24002B3667 /* MenuOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = E4F6227E1EAB6F24002B3667 /* MenuOptions.json */; };
+		E4F622821EAB79FE002B3667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F622811EAB79FE002B3667 /* Main.storyboard */; };
+		E4F622841EAB8C30002B3667 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F622831EAB8C30002B3667 /* Color.swift */; };
+		E4F622851EAB8C72002B3667 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F622831EAB8C30002B3667 /* Color.swift */; };
 		F04D34D61C8E106600DF3DD7 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */; };
 		F04D34D91C8E106600DF3DD7 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04D34D81C8E106600DF3DD7 /* TodayViewController.swift */; };
 		F04D34DC1C8E106600DF3DD7 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04D34DA1C8E106600DF3DD7 /* MainInterface.storyboard */; };
@@ -126,13 +129,11 @@
 		1E51D59A1C49880C00E6A951 /* NSManchester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSManchester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E51D59D1C49880C00E6A951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E51D59F1C49880C00E6A951 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		1E51D5A21C49880C00E6A951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E51D5A51C49880D00E6A951 /* NSManchester.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSManchester.xcdatamodel; sourceTree = "<group>"; };
 		1E51D5A71C49880D00E6A951 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E51D5AA1C49880D00E6A951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E51D5AC1C49880D00E6A951 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E51D5D21C49889800E6A951 /* URLSessionNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkingService.swift; sourceTree = "<group>"; };
-		1E51D5D41C49998500E6A951 /* JSONSerializationParsingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializationParsingService.swift; sourceTree = "<group>"; };
 		1E51D5D61C499C8700E6A951 /* NSManchester.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NSManchester.json; sourceTree = "<group>"; };
 		1E55FAFF1DDDB6BD00F2CE18 /* EventViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		1E55FB011DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
@@ -162,6 +163,9 @@
 		85F11B0FD812038CA5C7687B /* Pods-NSManchester.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSManchester.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NSManchester/Pods-NSManchester.debug.xcconfig"; sourceTree = "<group>"; };
 		8682288760DA95CB18466D24 /* Pods-NSManchester.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSManchester.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSManchester/Pods-NSManchester.release.xcconfig"; sourceTree = "<group>"; };
 		9D9FEC2C34F545B5609F48F1 /* Pods_NSManchesterNextMeetup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSManchesterNextMeetup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F6227E1EAB6F24002B3667 /* MenuOptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MenuOptions.json; sourceTree = "<group>"; };
+		E4F622811EAB79FE002B3667 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E4F622831EAB8C30002B3667 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F04D34D41C8E106600DF3DD7 /* NSManchesterNextMeetup.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NSManchesterNextMeetup.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04D34D51C8E106600DF3DD7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F04D34D81C8E106600DF3DD7 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -234,14 +238,13 @@
 		1E1C694D1C5C0FA100A6337C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4F6227D1EAB6F12002B3667 /* JSON */,
 				1E51D5A71C49880D00E6A951 /* Assets.xcassets */,
 				1ED8699E1DD7DA6200E13783 /* GoogleService-Info.plist */,
 				1E51D5AC1C49880D00E6A951 /* Info.plist */,
+				E4F622811EAB79FE002B3667 /* Main.storyboard */,
 				1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */,
-				1E51D5A11C49880C00E6A951 /* Main.storyboard */,
-				1E51D5D61C499C8700E6A951 /* NSManchester.json */,
 				1E51D5A41C49880D00E6A951 /* NSManchester.xcdatamodeld */,
-				1E185F3B1DDA7F7E00E56F05 /* NSManchester1.1.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -250,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				1ED8697F1DD70C3F00E13783 /* JSONDecodable.swift */,
-				1E51D5D41C49998500E6A951 /* JSONSerializationParsingService.swift */,
 				1E2D17031DBAC957009CCFE8 /* ParsingService.swift */,
 				1ED869811DD70F6F00E13783 /* SwiftyJSONParsingService.swift */,
 			);
@@ -298,8 +300,13 @@
 		1E2D16FC1DBAC6F8009CCFE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1ED8699C1DD7ADD200E13783 /* Model */,
-				1ED8697E1DD70BDD00E13783 /* View Model */,
+				E4F622831EAB8C30002B3667 /* Color.swift */,
+				1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */,
+				1ED869861DD7144500E13783 /* Talk+JSONDecodable.swift */,
+				1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */,
+				1ED869841DD7140500E13783 /* Speaker+JSONDecodable.swift */,
+				1E2D17011DBAC910009CCFE8 /* Event.swift */,
+				1ED869881DD715AA00E13783 /* Event+JSONDecodable.swift */,
 				1EC5A1D61DBC203800FA1DF8 /* Endpoints.swift */,
 			);
 			name = Model;
@@ -337,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				1E1C694A1C5C049000A6337C /* Application */,
+				E4F622801EAB6FBF002B3667 /* View Model */,
 				1E2D16FC1DBAC6F8009CCFE8 /* Model */,
 				1E1C694D1C5C0FA100A6337C /* Resources */,
 				1E51D5CE1C49883600E6A951 /* Services */,
@@ -384,27 +392,6 @@
 			name = Persistence;
 			sourceTree = "<group>";
 		};
-		1ED8697E1DD70BDD00E13783 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-				1E2D170D1DBAD25E009CCFE8 /* MenuOption.swift */,
-			);
-			name = "View Model";
-			sourceTree = "<group>";
-		};
-		1ED8699C1DD7ADD200E13783 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1E2D16FD1DBAC8E0009CCFE8 /* Talk.swift */,
-				1ED869861DD7144500E13783 /* Talk+JSONDecodable.swift */,
-				1E2D16FF1DBAC8EB009CCFE8 /* Speaker.swift */,
-				1ED869841DD7140500E13783 /* Speaker+JSONDecodable.swift */,
-				1E2D17011DBAC910009CCFE8 /* Event.swift */,
-				1ED869881DD715AA00E13783 /* Event+JSONDecodable.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		1EF137361C5D3BE3004DD7AE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +421,24 @@
 				27180C7650B44F2ABF55EAA2 /* Pods-NSManchesterNextMeetup.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E4F6227D1EAB6F12002B3667 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E4F6227E1EAB6F24002B3667 /* MenuOptions.json */,
+				1E51D5D61C499C8700E6A951 /* NSManchester.json */,
+				1E185F3B1DDA7F7E00E56F05 /* NSManchester1.1.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		E4F622801EAB6FBF002B3667 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E2D170D1DBAD25E009CCFE8 /* MenuOption.swift */,
+			);
+			name = "View Model";
 			sourceTree = "<group>";
 		};
 		ECD8D67FDE1EEE0A305AA8D3 /* Frameworks */ = {
@@ -512,7 +517,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Ross Butler";
 				TargetAttributes = {
 					1E51D5991C49880C00E6A951 = {
@@ -556,11 +561,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F622821EAB79FE002B3667 /* Main.storyboard in Resources */,
 				1E51D5D71C499C8700E6A951 /* NSManchester.json in Resources */,
+				E4F6227F1EAB6F24002B3667 /* MenuOptions.json in Resources */,
 				1E51D5AB1C49880D00E6A951 /* LaunchScreen.storyboard in Resources */,
 				1ED8699F1DD7DA6200E13783 /* GoogleService-Info.plist in Resources */,
 				1E51D5A81C49880D00E6A951 /* Assets.xcassets in Resources */,
-				1E51D5A31C49880C00E6A951 /* Main.storyboard in Resources */,
 				1E185F3C1DDA7F7E00E56F05 /* NSManchester1.1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,6 +699,7 @@
 				1E51D5A01C49880C00E6A951 /* MenuViewController.swift in Sources */,
 				1EC5A1DC1DBC217100FA1DF8 /* FilePersistenceService.swift in Sources */,
 				1ED869891DD715AA00E13783 /* Event+JSONDecodable.swift in Sources */,
+				E4F622841EAB8C30002B3667 /* Color.swift in Sources */,
 				1ED869801DD70C3F00E13783 /* JSONDecodable.swift in Sources */,
 				1E55FB021DDDB6EA00F2CE18 /* EventViewController+UITableViewDelegate.swift in Sources */,
 				539B32771C8E1A5B002681A0 /* UIColor.swift in Sources */,
@@ -731,6 +738,7 @@
 				1E2D17071DBACA94009CCFE8 /* Speaker.swift in Sources */,
 				1ED869981DD746A900E13783 /* SwiftyJSONParsingService.swift in Sources */,
 				1EBCB1701DDFA0BF006FC445 /* PersistenceService.swift in Sources */,
+				E4F622851EAB8C72002B3667 /* Color.swift in Sources */,
 				1EBCB1741DDFA1D7006FC445 /* TodayViewController+NCWidgetProviding.swift in Sources */,
 				1ED8699A1DD746F900E13783 /* Speaker+JSONDecodable.swift in Sources */,
 				1ED869831DD713D100E13783 /* JSONDecodable.swift in Sources */,
@@ -753,14 +761,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1E51D5A11C49880C00E6A951 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E51D5A21C49880C00E6A951 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1E51D5A91C49880D00E6A951 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -912,10 +912,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8229B82A4FF9E0119E7948F4 /* Pods-NSManchesterNextMeetup.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = R6FMX6D3C2;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -932,10 +932,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27180C7650B44F2ABF55EAA2 /* Pods-NSManchesterNextMeetup.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = R6FMX6D3C2;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = NSManchesterNextMeetup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

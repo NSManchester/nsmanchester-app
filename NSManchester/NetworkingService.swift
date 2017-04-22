@@ -7,9 +7,8 @@
 //
 
 import Foundation
+import Result
 
 protocol NetworkingService {
-    
-    func update(_ completion: ((Data)->())?)
-    
+    func dataForURL(_ url: URL, completion: ((Result<Data, NetworkingError>) -> Void)?)
 }

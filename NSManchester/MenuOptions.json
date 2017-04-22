@@ -1,0 +1,67 @@
+{
+    "main":[{
+         "title":"NSManchester",
+         "subtitle":"iOS Developer Group",
+         "segue":"",
+         "cellIdentifier":"nsmanchester",
+         "urlScheme":""
+         },
+         {
+         "title":"when?",
+         "subtitle":"",
+         "segue":"when",
+         "cellIdentifier":"when",
+         "urlScheme":""
+         },
+         {
+         "title":"where?",
+         "subtitle":"Madlab, 36-40 Edge Street, Manchester",
+         "segue":"where",
+         "cellIdentifier":"where",
+         "urlScheme":""
+         },
+         {
+         "title":"we're social",
+         "subtitle":"",
+         "segue":"social",
+         "cellIdentifier":"social",
+         "urlScheme":""
+         },
+         {
+         "title":"who?",
+         "subtitle":"",
+         "segue":"who",
+         "cellIdentifier":"who",
+         "urlScheme":""
+         }
+         ],
+    "social":[{
+              "title":"website",
+              "subtitle":"http://nsmanchester.co.uk",
+              "segue":"",
+              "cellIdentifier":"link",
+              "urlScheme":"http://nsmanchester.co.uk"
+              },
+              {
+              "title":"meetup",
+              "subtitle":"https://meetup.com/nsmanchester",
+              "segue":"",
+              "cellIdentifier":"link",
+              "urlScheme":"https://meetup.com/nsmanchester"
+              },
+              {
+              "title":"facebook",
+              "subtitle":"https://facebook.com/nsmanchester",
+              "segue":"",
+              "cellIdentifier":"link",
+              "urlScheme":"fb://profile?id=nsmanchester"
+              },
+              {
+              "title":"twitter",
+              "subtitle":"https://twitter.com/nsmanchester",
+              "segue":"",
+              "cellIdentifier":"link",
+              "urlScheme":"twitter://user?screen_name=nsmanchester"
+              }
+    ]
+}

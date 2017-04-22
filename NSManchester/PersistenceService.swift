@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import Result
 
 protocol PersistenceService {
-    
+    func persistData(_ data: Data, completion: ((Data) -> Void)?)
+    func retrieveData(completion: ((Result<Data, PersistenceError>) -> Void))
 }

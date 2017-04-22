@@ -11,10 +11,24 @@ import SwiftyJSON
 
 extension Talk : JSONDecodable {
     
-    init(json: JSON) {
-        title =  json["title"].stringValue
-        speaker = json["speaker"].intValue
-        slidesURL = URL(string: json["slides"].stringValue)
+    private enum TalkJSONKeys {
+        static let speaker = "speaker"
+        static let title = "title"
+        static let slides = "slides"
+    }
+    
+    init?(json: JSON) {
+        self.init(json: json, speakers: nil)
+    }
+    
+    init?(json: JSON, speakers: [Speaker]? = nil) {
+        let speakers = speakers?.filter { (($0.speakerID) == json[TalkJSONKeys.speaker].intValue) }
+        guard let newSpeaker = speakers?.first else {
+            return nil
+        }
+        title =  json[TalkJSONKeys.title].stringValue
+        speaker = newSpeaker
+        slidesURL = URL(string: json[TalkJSONKeys.slides].stringValue)
     }
     
 }

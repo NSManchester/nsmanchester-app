@@ -11,10 +11,16 @@ import SwiftyJSON
 
 extension Speaker : JSONDecodable {
     
+    private enum SpeakerJSONKeys {
+        static let identifier = "id"
+        static let forename = "forename"
+        static let surname = "surname"
+    }
+    
     init(json: JSON) {
-        speakerID = json["id"].intValue
-        forename =  json["forename"].stringValue
-        surname = json["surname"].stringValue
+        speakerID = json[SpeakerJSONKeys.identifier].intValue
+        forename =  json[SpeakerJSONKeys.forename].stringValue
+        surname = json[SpeakerJSONKeys.surname].stringValue
     }
     
 }

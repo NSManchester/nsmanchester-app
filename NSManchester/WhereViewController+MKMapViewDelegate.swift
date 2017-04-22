@@ -51,7 +51,7 @@ extension WhereViewController: MKMapViewDelegate {
                                                 message: "Please check that you are connected to the Internet and try again.",
                                                 preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK", style: .default) { action in }
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in }
         alertController.addAction(okAction)
         
         self.present(alertController, animated: true) {}

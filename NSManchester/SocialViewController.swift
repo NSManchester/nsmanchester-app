@@ -81,7 +81,7 @@ class SocialViewController: UIViewController, UITableViewDataSource, UITableView
             cell.detailTextLabel?.text = urlString
         }
         
-        cell.contentView.backgroundColor = UIColor.cell(for: indexPath, offset: 2)
+        cell.contentView.backgroundColor = UIColor.cell(for: indexPath, offset: 2).rawValue
         
         let selectedBackgroundView = UIView(frame: cell.frame)
         selectedBackgroundView.backgroundColor = tableView.cellSelectionColourForCellWithColour(cell.contentView.backgroundColor!)

@@ -51,7 +51,7 @@ class WhenViewController: UIViewController {
                     let selectedRow = selectedIndexPath.row
                     destination.titleText = menuOptions[selectedRow].title
                     destination.eventID = selectedRow
-                    destination.backgroundColour = UIColor.cell(for: selectedIndexPath) // Centralise colours
+                    destination.backgroundColour = UIColor.cell(for: selectedIndexPath).rawValue
                 }
             
         }

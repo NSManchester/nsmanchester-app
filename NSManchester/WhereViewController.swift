@@ -37,7 +37,7 @@ class WhereViewController: UIViewController {
         checkLocationAuthorizationStatus()
 
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(WhereViewController.reload(_:)),
+                                               selector: #selector(reload(_:)),
                                                name: NSNotification.Name.FeedDataUpdated,
                                                object: nil)
     }

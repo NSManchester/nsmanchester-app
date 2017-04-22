@@ -54,14 +54,47 @@
                  "id": "10",
                  "forename": "Luke",
                  "surname": "Stringer"
+                 },
+                 {
+                 "id": "11",
+                 "forename": "Greg",
+                 "surname": "Spiers"
+                 },
+                 {
+                 "id": "12",
+                 "forename": "Tim",
+                 "surname": "Condon"
+                 },
+                 {
+                 "id": "13",
+                 "forename": "Bobby",
+                 "surname": "Bobak"
                  }
                  ],
     "events": [
-              {
-              "date": "06/03/17",
+               {
+               "date": "03/04/17",
                "talks": [{
-                         "title": "TBA",
-                         "speaker": "2"
+                         "title": "Protocol-Oriented UI",
+                         "speaker": "13",
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2017/04/bobby_bobak_protocol_oriented_ui.pdf"
+                         },
+                         {
+                         "title": "Work/life balance",
+                         "speaker": "1"
+                         }]
+               },
+               {
+               "date": "06/03/17",
+               "talks": [{
+                         "title": "Swift in a Large Objective-C Codebase",
+                         "speaker": "11",
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2017/03/greg_spiers_swift_in_objc_codebase.pdf"
+                         },
+                         {
+                         "title": "Introduction to Vapor and Server-Side Swift",
+                         "speaker": "12",
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2017/03/timcondon_serverside_swift_with_vapor.pdf"
                          }]
                },
                {
@@ -69,11 +102,13 @@
                "talks": [
                          {
                          "title": "The Windows Bridge for iOS",
-                         "speaker": "9"
+                         "speaker": "9",
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2017/02/mikeirving_windows_bridge.pdf"
                          },
                          {
                          "title": "A Swift Journey",
-                         "speaker": "10"
+                         "speaker": "10",
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2017/02/lukestringer_a_swift_journey.pdf"
                          }]
                },
                {
@@ -98,8 +133,9 @@
                          "speaker": "2"
                          },
                          {
-                         "title": "TBC",
-                         "speaker": "1"
+                         "title": "The Worst Bug Ever",
+                         "speaker": "1",
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2016/12/stuartsharpe_worstbugever.pdf"
                          },
                          {
                          "title": "iOS at CBeebies",
@@ -115,12 +151,12 @@
                "talks": [{
                          "title": "CocoaLove 2016 Conference Roundup",
                          "speaker": "6",
-                         "slides": "https://github.com/NSManchester/talks/blob/master/2016/10/matthewspear_cocoalove2016.pdf"
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2016/11/matthewspear_cocoalove2016.pdf"
                          },
                          {
                          "title": "Webview Audio",
                          "speaker": "2",
-                         "slides": "https://github.com/NSManchester/talks/blob/master/2016/10/rossbutler_webviewaudio.pdf"
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2016/11/rossbutler_webviewaudio.pdf"
                          }]
                },
                {
@@ -161,7 +197,7 @@
                "talks": [{
                          "title": "Swift Hack: NSManchester iOS App",
                          "speaker": "2",
-                         "slides": "https://github.com/NSManchester/talks/blob/master/2016/03/rossbutler_swifthack.pdf"
+                         "slides": "https://github.com/NSManchester/nsmanchester-talks/blob/master/2016/03/rossbutler_swifthack.pdf"
                          }]
                },
                {

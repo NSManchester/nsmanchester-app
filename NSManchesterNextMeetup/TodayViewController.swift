@@ -10,26 +10,24 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController {
-
+    
     // Outlets
     @IBOutlet weak var dateField: UILabel!
-
+    
     // Services
     let dataService: DataService = ServicesFactory.dataService()
     let networkingService: NetworkingService = ServicesFactory.networkingService()
-
+    
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
-
+        
         // Update text field with date of next meetup
-
-        dateField.text = dataService.todayViewOptions().title
-
-        networkingService.update { [weak self] data in
-            self?.dateField.text = self?.dataService.todayViewOptions().title
-        }
-
+        dateField.text = "First Monday of each month"
+        dataService.nextEventString(callback: { [weak self] title in
+            self?.dateField.text = title
+        })
+        
     }
     
     @IBAction func goToEvent(_ sender: AnyObject) {
@@ -39,5 +37,5 @@ class TodayViewController: UIViewController {
         }
         
     }
-
+    
 }

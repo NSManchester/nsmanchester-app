@@ -12,7 +12,7 @@ import UIKit
 extension EventViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions!.count
+        return menuOptions?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,7 +20,7 @@ extension EventViewController: UITableViewDataSource {
         let cellIdentifier = menuOptions![(indexPath as NSIndexPath).row].cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         
-        cell.contentView.backgroundColor = UIColor.cell(for: indexPath)
+        cell.contentView.backgroundColor = UIColor.cell(for: indexPath).rawValue
         
         let talkLabel = cell.viewWithTag(EventCell.TalkLabelId) as? UILabel
         let authorLabel = cell.viewWithTag(EventCell.AuthorLabelId) as? UILabel
